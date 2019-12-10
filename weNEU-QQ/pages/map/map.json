@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "爱心雨伞",
+  "component": true,
+  "usingComponents": {
+    "van-cell": "../../dist_vant/cell/index"
+  }
+}

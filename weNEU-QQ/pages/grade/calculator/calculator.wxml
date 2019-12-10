@@ -1,0 +1,187 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding" wx:if="{{currentTask <= totalTaskNumber}}">
+  <empty-state title="请稍候" description="历史科目 GPA 计算中..." icon="loading">
+  </empty-state>
+</view>
+<!-- 上方添加小程序滚动条
+<van-notice-bar mode="closeable" text="点击右上角分享图标选择「添加到我的小程序/添加到桌面」，使用weNEU更快捷" backgroundColor="#505050" color="#fff" /> -->
+<!--绩点信息总览卡片-->
+<card-title text="常用 GPA 算法转换" sub-text="GPA Convert"></card-title>
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+  <view class="header">
+    <view>
+      <view class="info">
+        <text>标准加权: {{four}}/4.0</text>
+        <text>北大4.0: {{pku}}/4.0</text>
+      </view>
+      <view class="info">
+        <text>标准4.0: {{standrad}}/4.0</text>
+        <text>浙大4.0: {{zju}}/4.0</text>
+      </view>
+      <view class="info">
+        <text>改进4.0(1): {{advanced1}}/4.0</text>
+        <text>WES: {{advanced2}}/4.0</text>
+      </view>
+      <view class="info">
+        <text>改进4.0(2): {{advanced2}}/4.0</text>
+        <text>上交4.3: {{sjtu}}/4.3</text>
+      </view>
+      <view class="info">
+        <text>算术平均分: {{score}}/100</text>
+        <text>中科大4.3: {{ustc}}/4.3</text>
+      </view>
+      <view class="info">
+        <text>加权平均分: {{weight}}/100</text>
+        <text>加拿大4.3: {{canada}}/4.3</text>
+      </view>
+      <view class="info">
+        <text>东北大学: {{neu}}</text>
+        <text>课程总数: {{gradeList.length}}</text>
+        <text>学分总数: {{sum_credit}} </text>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  <card-title text="算法解释" sub-text="Algorithms"></card-title>
+  <view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+    <van-tabs type="card" color="#505050">
+      <van-tab title="标准加权">
+        <van-cell-group>
+          <van-cell title="GPA=∑(成绩×学分)÷∑学分 × 4/100  百分制" />
+        </van-cell-group>
+      </van-tab>
+      <van-tab title="标准4.0">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～90" value="4.0" border="{{ false }}" />
+          <van-cell title="89～80" value="3.0" border="{{ false }}" />
+          <van-cell title="79～70" value="2.0" border="{{ false }}" />
+          <van-cell title="69～60" value="1.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="改进4.0(1)">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～85" value="4.0" border="{{ false }}" />
+          <van-cell title="84～70" value="3.0" border="{{ false }}" />
+          <van-cell title="69～60" value="2.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="改进4.0(2)">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～85" value="4.0" border="{{ false }}" />
+          <van-cell title="84～75" value="3.0" border="{{ false }}" />
+          <van-cell title="74～60" value="2.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="北大4.0">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～90" value="4.0" border="{{ false }}" />
+          <van-cell title="89～85" value="3.7" border="{{ false }}" />
+          <van-cell title="84～82" value="3.3" border="{{ false }}" />
+          <van-cell title="81～78" value="3.0" border="{{ false }}" />
+          <van-cell title="77～75" value="2.7" border="{{ false }}" />
+          <van-cell title="74～72" value="2.3" border="{{ false }}" />
+          <van-cell title="71～68" value="2.0" border="{{ false }}" />
+          <van-cell title="67～64" value="1.5" border="{{ false }}" />
+          <van-cell title="63～60" value="1.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="浙大4.0">
+        <view>
+          <image src='https://s2.ax1x.com/2019/01/20/kChuxU.png' mode='widthFix' class='algorithm'></image>
+        </view>
+      </van-tab>
+
+      <van-tab title="WES">
+        <van-cell-group>
+          <van-cell title="与改进4.0(2)相同" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="上交4.3">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～95" value="4.3" border="{{ false }}" />
+          <van-cell title="94～90" value="4.0" border="{{ false }}" />
+          <van-cell title="89～85" value="3.7" border="{{ false }}" />
+          <van-cell title="84～80" value="3.3" border="{{ false }}" />
+          <van-cell title="79～75" value="3.0" border="{{ false }}" />
+          <van-cell title="74～70" value="2.7" border="{{ false }}" />
+          <van-cell title="69～67" value="2.3" border="{{ false }}" />
+          <van-cell title="66～65" value="2.0" border="{{ false }}" />
+          <van-cell title="64～62" value="1.7" border="{{ false }}" />
+          <van-cell title="61～60" value="1.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="中科大4.3">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～95" value="4.3" border="{{ false }}" />
+          <van-cell title="94～90" value="4.0" border="{{ false }}" />
+          <van-cell title="89～85" value="3.7" border="{{ false }}" />
+          <van-cell title="84～82" value="3.3" border="{{ false }}" />
+          <van-cell title="81～78" value="3.0" border="{{ false }}" />
+          <van-cell title="77～75" value="2.7" border="{{ false }}" />
+          <van-cell title="74～72" value="2.3" border="{{ false }}" />
+          <van-cell title="71～68" value="2.0" border="{{ false }}" />
+          <van-cell title="67～65" value="1.7" border="{{ false }}" />
+          <van-cell title="64～64" value="1.5" border="{{ false }}" />
+          <van-cell title="63～61" value="1.3" border="{{ false }}" />
+          <van-cell title="60～60" value="1.0" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="加拿大4.3">
+        <van-cell-group>
+          <van-cell title="成绩" value="GPA" />
+          <van-cell title="100～90" value="4.3" border="{{ false }}" />
+          <van-cell title="89～85" value="4.0" border="{{ false }}" />
+          <van-cell title="84～80" value="3.7" border="{{ false }}" />
+          <van-cell title="79～75" value="3.3" border="{{ false }}" />
+          <van-cell title="74～70" value="3.0" border="{{ false }}" />
+          <van-cell title="69～65" value="2.7" border="{{ false }}" />
+          <van-cell title="64～60" value="2.3" border="{{ false }}" />
+          <van-cell title="59～0" value="0" border="{{ false }}" />
+        </van-cell-group>
+      </van-tab>
+
+      <van-tab title="东北大学">
+        <view>
+          <image src='https://s2.ax1x.com/2019/01/20/kCDyef.png' mode='widthFix' class='algorithm'></image>
+          <image src='https://s2.ax1x.com/2019/01/20/kCD2Fg.png' mode='widthFix' class='algorithm'></image>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
+<view>
+  <card-title text="常见问题说明" sub-text="Q&A"></card-title>
+  <view class="last-info">
+    <text>「GPA怎么算的？」GPA计算方法参照网站https://apps.chasedream.com/gpa，也就是上面所给的计算方法，数据来源东北大学教务处。</text>
+  </view>
+  <view class="last-info">
+    <text>「上面的东北大学绩点和教务处绩点不一样？」上面的东北大学绩点是我们利用东北大学绩点算法自行计算的全部课程的GPA，但未考虑因挂科重修导致的绩点偏差。\n(1)因条件所限对于有挂科/降级经历的同学的绩点计算会有"些许"偏差，我们会尽快完善。\n(2)如果有未考评的科目也会导致计算不准确。\n(3)暂时仅支持2016级及以后的同学。如果上面的东北大学绩点与您当前在校实际绩点吻合则证明计算是完全准确的。(上一个页面(查成绩页面)所展示的绩点就是您当前在校的实际绩点)</text>
+  </view>
+  <view class="last-info">
+    <text>「加油」祝每位有留学梦的同学都能去到理想的学校，一定可以的！</text>
+  </view>
+  <view class="last-info">
+    <text>「联系我们」有任何疑问，好的意见或建议欢迎加入weNEU用户交流群: 721423324，等你呦~\n如果觉得weNEU好用的话也强烈希望您把我们分享给你的朋友同学们呦！</text>
+  </view>
+</view>

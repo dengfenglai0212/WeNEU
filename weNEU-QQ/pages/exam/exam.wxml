@@ -1,0 +1,52 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+
+<view class="container">
+  <view class="ks-header">
+    <view class="ks-text">
+      <text class="ks-header-title">2019-2020学年秋季学期</text>
+    </view>
+  </view>
+  <!-- <view wx:if="{{!isNull}}"> -->
+  <view wx:if="{{isNull}}" class="bg-white margin-top margin-right margin-left shadow-md radius-lg animation-slide-bottom padding">
+    <empty-state title="无可查看的考试日程" icon="magic">
+      </empty-state>
+  </view>
+  <view class="ks-class-ctn">
+    <block wx:for="{{ksInfo}}" wx:key="index">
+      <view class="ks-class-item {{item.open ? 'ks-item-show' : ''}}">
+        <view class="ks-hd" data-id="{{index}}" bindtap="slideDetail">
+          <view class="ks-hd-left">
+            <view class="ks-hd-name">
+              {{item.name}}
+            </view>
+            <view class="ks-hd-other">
+              {{item.time}}
+            </view>
+          </view>
+          <image class="ks-item-icon" src="/images/index/exam/down.png"></image>
+        </view>
+        <view class="ks-detail">
+          <view class="ks-detail-item">
+            <text class="ks-detail-label">课程号 </text>
+            <text class="ks-detail-content">{{item.courseCode}}</text>
+          </view>
+          <view class="ks-detail-item">
+            <text class="ks-detail-label">考场</text>
+            <text class="ks-detail-content">{{item.place}}</text>
+          </view>
+          <view class="ks-detail-item">
+            <text class="ks-detail-label">时间</text>
+            <text class="ks-detail-content">{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>
+<demo-block title="提示">
+  <view class="last-info">
+    <text>以上数据仅供参考，请以教务处发布为准。</text>
+  </view>
+</demo-block>

@@ -1,0 +1,124 @@
+<view class="count-down bg-white">
+    <view class="time-count icon-remind" wx:if="{{!submitted}}"> {{hour}} : {{min}}</view>
+    <view class="progress-bar bg-white">
+        <view class="cu-progress radius striped active" wx:if="{{!submitted}}">
+            <view class="bg-{{percentage > 25 ? (percentage > 75 ? 'olive' : 'cyan') : 'red'}}" style="width:{{loading? percentage + '%':''}};">{{percentage}}%</view>
+        </view>
+        <!-- 提交后成绩与用时统计 -->
+        <view wx:else>
+            <text style="margin: 0  26rpx 0 0;">得分: {{grade}}</text>
+            <text>用时: {{timeConsuming}} min</text>
+        </view>
+    </view>
+</view>
+
+<!-- scroll-view -->
+<view class="bg-white scroll-view-nav" >
+
+    <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}" style="width: 87%;">
+        <view class="cu-item {{index==TabCur?'text-grey cur':''}}" wx:for="{{25}}" wx:key bindtap="tabSelect" data-id="{{index}}" style="position: relative">
+        <view wx:if="{{!submitted}}">
+            <view class="cu-tag badge" style="top: 0; right: 0; background-color: #39b54a;" wx:if="{{ checked[index][0] == true || checked[index][1] == true || checked[index][2] == true || checked[index][3] == true ? true : false}}"></view>
+        </view>
+        <view wx:else>
+            <view class="cu-tag badge" style="top: 0; right: 0; background-color: {{record[index].status == true ? '#39b54a' : 'red'}}" ></view>
+        </view>
+        Q {{index + 1}}
+        </view>
+    </scroll-view>
+    <text class="icon-more icons" bind:tap="openMore"></text>
+
+    <!-- 更多题目选项 -->
+    <view class="popup-wrapper">
+        <van-popup 
+            show="{{ show }}" 
+            bind:close="onClose" 
+            round="true"
+            custom-style="width: 90%; top: 13vh; margin-top: 230rpx;">
+            <view class="popup-content-wrapper">
+                <view class="popup-content margin">
+                    <view wx:if="{{!submitted}}" >
+                        <view class="item text-{{index == TabCur ? 'green' : ''}}" wx:for="{{25}}" wx:key id="{{index}}" bind:tap="chooseItem">Q {{index + 1}}</view>
+                    </view>
+                    <view wx:else>
+                        <view class="item text-{{record[index].status == true ? 'green' : 'red'}}" wx:for="{{25}}" wx:key id="{{index}}" bind:tap="chooseItem">Q {{index + 1}}</view>
+                    </view>
+                </view>
+            </view>
+        </van-popup>
+    </view>
+</view>
+
+<view class="question-wrapper">
+    <view class="quesiton-title margin" style="margin-top: 0; margin-bottom: 0;">
+        <view class="bg-img bg-white padding-tb-xl radius shadow-md" style="background-image: url({{'https://math.neuyan.com/' + finalQues[TabCur].question}}); background-size: contain; height: 200rpx;" bind:tap="picClick" id="title">
+    </view>
+    <!-- <view class="pre control">
+        <image src="../../../images/table/front.png" class="confirm" bind:tap="front"></image>
+    </view>
+    <view class="next control">
+        <image src="../../../images/table/next.png" class="confirm" bind:tap="next"></image>
+    </view> -->
+</view>
+    <view class="question-wrapper padding" style="margin-top: 0;">
+        <view class="question-anwser bg-white radius shadow-md">
+            <view class="anwser padding">
+                <view class="bg-white padding">
+                    <view class="grid col-1 margin-bottom text-center" wx:for="{{[1, 2, 3, 4]}}" wx:key>
+                    <view class="answer-item">
+                        <view class="text-lg">{{item == 1 ? 'A.' : item == 2 ? 'B.' : item == 3 ? 'C.' : 'D.'}}</view>
+                        <view class="answer-pic">
+                            <view class="bg-img" bind:tap="picClick" style="background-image:url({{'https://math.neuyan.com/' + finalQues[TabCur].item + item + '.png'}});" id="{{item}}"></view>
+                        </view>
+                        <view wx:if="{{!submitted}}" class="answer-choose">
+                            <checkbox id="{{index}}" value="{{index}}" checked="{{checked[TabCur][index]}}" class="round grey" bind:tap="checkboxChange" disabled="{{submitted}}"/>  
+                        </view>
+                        <view wx:else class="answer-choose">
+                            <checkbox id="{{index}}" value="{{index}}" checked="{{checked[TabCur][index] || record[TabCur].answer}}" class="round {{record[TabCur].answer == index + 1 ? 'green' : checked[TabCur][index] == true  ? 'red' : 'grey'}}" disabled="{{submitted}}"/>  
+                        </view>
+                    </view>
+                    </view>
+                </view>
+            </view>
+            <view class="front-next padding">
+                <view class="pre control">
+                    <image src="../../../images/table/front.png" class="confirm" bind:tap="front"></image>
+                    <text class="text-lg padding-left" bind:tap="front">上一题</text>
+                </view>
+                <view class="next control">
+                    <text class="text-lg padding-right" bind:tap="next">下一题</text>
+                    <image src="../../../images/table/next.png" class="confirm" bind:tap="next"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="tips margin padding text-center text-gray">
+    <view wx:if="{{!submitted}}">
+        <view>提示:点击图片可以预览</view>
+        <view>注意顶部倒计时哦!</view>
+    </view>
+    <view class="margin padding" style="margin-top: 0; padding-top: 0;" wx:else>
+        <view class="text-lg margin">
+            <text class="margin-right-lg" decode="true">正确答案: &nbsp;&nbsp;{{record[TabCur].answer == 1 ? 'A' : record[TabCur].answer == 2 ? 'B' : record[TabCur].answer == 3 ? 'C' : 'D'}}</text>
+            <text class="margin-right">你的答案: </text>
+            <view class="margin-right" wx:for="{{record[TabCur].userAnswer}}" style="display: inline-block;" wx:key="index">
+                {{item == 0 ? 'A' : item == 1 ? 'B' : item == 2 ? 'C' : 'D'}}
+            </view>
+            <view style="display: inline-block" wx:if="{{record[TabCur].userAnswer.length == 0}}">未答</view>
+            <text class="icon-{{record[TabCur].status == true ? 'check' : 'close'}} text-{{record[TabCur].status == true ? 'green' : 'red'}}" style="font-size: 86rpx; vertical-align: middle"></text>
+        </view>
+        <button class="cu-btn bg-white lg" id="{{TabCur}}" bind:tap="seeDetail">查看解析</button>
+    </view>
+</view>
+
+<view class="img margin padding text-center" wx:if="{{!submitted}}">
+    <image src="../../../images/table/confirm.png" class="confirm" bind:tap="confirm"></image>
+</view>
+
+<!-- 练习确认 -->
+<van-dialog id="van-dialog" />
+<!-- 提示框 -->
+<van-toast id="van-toast" />
+

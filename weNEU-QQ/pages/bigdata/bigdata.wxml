@@ -1,0 +1,79 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<view class="bg-white margin shadow-md padding-sm radius-lg">
+  <van-tabs active="{{ active1 }}" color="#505050" swipeable="true" animated="true" bind:change="onChange">
+    <van-tab title="去哪吃饭">
+      <!-- <van-tabs active="{{ active2 }}" color="#505050" swipeable="true" animated="true" bind:change="onChange2"> -->
+      <!-- <van-tab title="南湖"> -->
+      <demo-block title="一舍食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-7" canvas-id="mychart-bar" ec="{{ ec7 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-8" canvas-id="mychart-bar" ec="{{ ec8 }}"></ec-canvas>
+        </view>
+      </demo-block>
+
+      <demo-block title="二舍食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-9" canvas-id="mychart-bar" ec="{{ ec9 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-10" canvas-id="mychart-bar" ec="{{ ec10 }}"></ec-canvas>
+        </view>
+      </demo-block>
+
+      <demo-block title="学生城食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-11" canvas-id="mychart-bar" ec="{{ ec11 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-12" canvas-id="mychart-bar" ec="{{ ec12 }}"></ec-canvas>
+        </view>
+      </demo-block>
+      <!-- </van-tab>
+      <van-tab title="浑南" > -->
+      <demo-block title="浑南食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-13" canvas-id="mychart-bar" ec="{{ ec13 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-14" canvas-id="mychart-bar" ec="{{ ec14 }}"></ec-canvas>
+        </view>
+      </demo-block>
+      <!-- </van-tab>
+      <van-tab title="其他"> -->
+      <demo-block title="教工食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-15" canvas-id="mychart-bar" ec="{{ ec15 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-16" canvas-id="mychart-bar" ec="{{ ec16 }}"></ec-canvas>
+        </view>
+      </demo-block>
+      <demo-block title="清真食堂">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-17" canvas-id="mychart-bar" ec="{{ ec17 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-18" canvas-id="mychart-bar" ec="{{ ec18 }}"></ec-canvas>
+        </view>
+      </demo-block>
+      <!-- </van-tab>
+    </van-tabs> -->
+    </van-tab>
+
+    <van-tab title="消费分析">
+      <demo-block title="就餐分析">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-1" canvas-id="mychart-bar" ec="{{ ec1 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-2" canvas-id="mychart-bar" ec="{{ ec2 }}"></ec-canvas>
+        </view>
+      </demo-block>
+
+      <demo-block title="购物分析">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-3" canvas-id="mychart-bar" ec="{{ ec3 }}"></ec-canvas>
+
+          <ec-canvas class="mychart" id="mychart-dom-bar-4" canvas-id="mychart-bar" ec="{{ ec4 }}"></ec-canvas>
+        </view>
+      </demo-block>
+
+      <demo-block title="圈存分析">
+        <view class="mychart-box">
+          <ec-canvas class="mychart" id="mychart-dom-bar-5" canvas-id="mychart-bar" ec="{{ ec5 }}"></ec-canvas>
+          <ec-canvas class="mychart" id="mychart-dom-bar-6" canvas-id="mychart-bar" ec="{{ ec6 }}"></ec-canvas>
+        </view>
+      </demo-block>
+
+    </van-tab>
+  </van-tabs>
+</view>

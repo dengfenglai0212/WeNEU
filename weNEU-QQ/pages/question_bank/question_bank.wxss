@@ -1,0 +1,144 @@
+Page {
+  background-color: #f1f1f1;
+  font-size: 30rpx; 
+}
+
+.wrapper {
+  /* height: 100vh; */
+}
+
+/* 做题统计信息 */
+.overview-wrapper {
+  height: 50%;
+  padding-top: 16rpx;
+  background-color: #0585fd;
+}
+
+.overview-box {
+  /* margin-top: 0; */
+  color: #fff !important;
+  position: relative;
+  top: 3vh;
+  height: 360rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.van-circle__text {
+  color: #fff !important;
+}
+
+.finish-rate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.finish-wrapper {
+  position: relative;
+  bottom: -166rpx;
+}
+
+.line {
+  height: 16rpx; 
+  width: 100%; 
+  background-color: #eee;
+  margin: 16rpx 0;
+}
+
+/* 圆弧 */
+.arc{
+  height: 100rpx;
+  background-color: #0585fd;
+  border-radius: 0 0 50% 50%;
+  z-index: -1;  
+}
+
+/* 功能模版 */
+.function-wrapper {
+  position: relative;
+  top: -230rpx;
+}
+
+.function-box {
+  height: 270rpx
+}
+
+.function-grid {
+  margin: 30rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.function-grid-item {
+  text-align: center;
+}
+
+.icons-wrong,
+.icons-favor,
+.icons-record
+ {
+  /* margin: 6rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-g-center {
+  margin: 0 36rpx;
+}
+
+
+/* 习题册*/
+.exercise-book-wrapper {
+  position: relative;
+  top: -230rpx;
+}
+
+.exercise-book-box {
+  height: 350rpx;
+  display: flex; 
+  flex-direction: column;
+  align-items:  stretch;
+}
+
+.subject-icon {
+  padding: 0 12rpx 0 0;
+}
+
+.subject-name {
+  flex: 1;
+}
+
+.subject-selection {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 36rpx;
+  text-align: left;
+  line-height: 1.5;
+  color: #8b8b8b !important;
+}
+
+/* 选题弹出框 */
+.popup-wrapper {
+  /* z-index: 999999 !important;
+  overflow: hidden; */
+}
+
+.popup-title {
+  height: 66rpx;
+  font-size: 36rpx;
+  line-height: 66rpx;
+}
+
+.divider {
+  height: 3rpx;
+  margin: 0 30rpx;
+  background-color: #eee;
+}

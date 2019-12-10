@@ -1,0 +1,114 @@
+<!--pages/math_reserve/math_reserve.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<view class='main-view'>
+  <!-- 登录界面 -->
+  <view class="login-view" hidden='{{is_login_reserve}}'>
+    <view class='inside'>
+      <form bindsubmit='onLogin'>
+        <view class='password-view'>
+          <input type='text' password='true' name="password" placeholder='请输入预约系统密码'></input>
+        </view>
+        <view class='login-but-view'>
+          <button form-type='submit' type='primary' disabled='{{on_login}}'>登录</button>
+        </view>
+      </form>
+    </view>
+    <view style="margin-top:200rpx;">
+      <card-title text="提示" sub-text="Tip"></card-title>
+    </view>
+    <view class="last-info">
+      <text>请连接校园网使用！</text>
+    </view>
+  </view>
+
+  <card-title text="提示" sub-text="Tip"></card-title>
+<view class="last-info">
+  <text>请连接校园网使用！</text>
+</view>
+  <view class='reserve-view' hidden='{{!is_login_reserve}}'>
+    <!-- 选座区 -->
+    <view class='choose_container bg-white margin shadow-md padding radius-lg animation-slide-botto'>
+      <form bindsubmit="submitChoice">
+        <view class='picker_line'>
+          <view>
+            <picker mode="selector" name="paper" bindchange="bindPaperChange" value="{{paper_index}}" range="{{paper_range}}">
+              <view class="picker">
+                <text class='select_name'>考试</text>
+                <text class='select_res'>{{paper_range[paper_index]}}</text>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='picker_line'>
+          <view>
+            <picker mode="selector" name="date" bindchange="bindDateChange" value="{{date_index}}" range="{{date_range}}">
+              <view class="picker">
+                <text class='select_name'>日期</text>
+                <text class='select_res'>{{date_range[date_index]}}</text>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='picker_line'>
+          <view>
+            <picker mode="selector" name="room" bindchange="bindRoomChange" value="{{rooms_index}}" range="{{room_range}}">
+              <view class="picker">
+                <text class='select_name'>考场</text>
+                <text class='select_res'>{{room_range[room_index]}}</text>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='picker_line'>
+          <view>
+            <picker mode="selector" name="round" bindchange="bindRoundChange" value="{{round_index}}" range="{{round_range}}">
+              <view class="picker">
+                <text class='select_name'>场次</text>
+                <text class='select_res'>{{round_range[round_index]}}</text>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='paper_info'>
+          <text>剩余座位:{{seats}}</text>
+          <text>此考试还可撤销{{papers[paper_index].revocation_limit - papers[paper_index].revocation_used}}次</text>
+        </view>
+
+        <view class='submit_but_view'>
+          <button class='reserve-button' disabled="{{seats == 0}}" form-type='submit'>预约考试</button>
+        </view>
+      </form>
+    </view>
+    <!-- 选座区末尾 -->
+
+    <!-- 全部已选考试 -->
+    <view class='bg-white margin shadow-md padding radius-lg animation-slide-botto'>
+      <view class='display-switch-view'>
+        <text>显示过期考试</text>
+        <switch bindchange="onSwitchChange"></switch>
+      </view>
+      <view class="divLine"></view>
+      <view wx:for="{{papers_processed}}" wx:for-item="paper" wx:key="p">
+        <form bindsubmit="cancel">
+          <view class='paper-item' hidden="{{ ( (!(display_out_of_date)) && (paper.is_out_of) ) }}">
+            <input name="paper_id" hidden='true' value='{{paper.id}}'></input>
+            <view class='title-view'>{{paper.name}}</view>
+            <view class="text-view">
+              <text>地点</text>
+              <text>{{paper.room_name}} {{paper.seat_name}}</text>
+            </view>
+            <view class="text-view">
+              <text>时间</text>
+              <text>{{paper.date_str}} {{paper.start_time}}-{{paper.end_time}}</text>
+            </view>
+            <view class='cancel-button-view'>
+              <button class='cancel-button' disabled="{{!paper.can_cancel}}" form-type='submit'>撤销</button>
+            </view>
+            <view class="divLine"></view>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

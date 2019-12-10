@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "小练习",
+    "enablePullDownRefresh": false,"usingComponents": {
+        "van-divider": "../../../vant_weapp/components/dist/divider/index",
+        "van-progress": "../../../vant_weapp/components/dist/progress/index",
+        "van-dialog": "../../../dist_vant/dialog/index",
+        "van-toast": "../../../vant_weapp/components/dist/toast/index",
+        "van-popup": "../../../vant_weapp/components/dist/popup/index"
+    }
+}

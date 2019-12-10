@@ -1,0 +1,9 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<card-title text="校历" sub-text="Campus Calendar"></card-title>
+<view class="bg-white margin shadow-md padding-sm radius-lg">
+  <image src="https://s2.ax1x.com/2019/09/08/n8fjYt.jpg" mode="widthFix" style="width: 750rpx;" />
+  <image src="https://s2.ax1x.com/2019/09/08/n8fXFI.jpg" mode="widthFix" style="width: 750rpx;" />
+  <image src="https://s2.ax1x.com/2019/09/08/n8fbeH.jpg" mode="widthFix" style="width: 750rpx;" />
+  <image src="https://s2.ax1x.com/2019/09/08/n8fqwd.jpg" mode="widthFix" style="width: 750rpx;" />
+</view>

@@ -1,0 +1,40 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<!--detail.wxml (common)-->
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom">
+  <view wx:if="{{remind}}" class="remind-box" style="text-align:center">
+    <view wx:if="{{remind == '加载中'}}" class='loading'>
+      <van-loading />
+    </view>
+    <block wx:else>
+      <empty-state title="{{remind}}" icon="news"></empty-state>
+    </block>
+  </view>
+  <block wx:else>
+    <view class="title">
+      <text>{{title}}</text>
+    </view>
+    <view class="info">
+      <text wx:if="{{date}}" class="icon-time"> 发布时间：{{date}}</text>
+      <text wx:if="{{author}}" class="icon-people"> 作者：{{author}}</text>
+    </view>
+    <image class='image-info' src="{{imgs}}" wx:if="{{imgs}}" mode="widthFix"></image>
+    <text class="detail margin-top">{{content}}</text>
+    <swiper class="files_list" wx:if="{{files_len}}" indicator-dots="{{files_len !== 1}}" autoplay="{{!file_loading}}">
+      <swiper-item wx:for="{{files_list}}" wx:key="id">
+        <view class="file">
+          <image src="/images/news/file.png" class="file-img"></image>
+          <view class="fileNameSource">
+            <text class="file-name">{{item.title}}</text>
+            <text class="file-source">{{source}}</text>
+          </view>
+          <view class="file-remind">
+            <image wx:if="{{file_loading}}" src="/images/index/loading.gif"></image>
+            <text wx:else data-preview="{{item.preview}}" data-url="{{item.flink}}" bindtap="getFj">{{item.preview ? '点击预览' : '无法预览'}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </block>
+</view>

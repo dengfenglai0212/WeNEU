@@ -1,0 +1,135 @@
+/* pages/component/nav/nav.wxss */
+
+
+/* 倒计时 */
+.time-count {
+  display: inline-block;
+  width: 20%;
+  padding-left: 20rpx;
+  text-align: center;
+}
+
+.progress-bar {
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 30rpx;
+  display: inline-block;
+  width: 80%;
+}
+
+.van-progress {
+  margin-top: 36rpx;
+}
+
+.question-title image {
+  height: 196rpx;
+  position: relative;
+}
+
+/* 导航 */
+.scroll-view-nav {
+  position: relative;
+}
+
+.scroll-view-nav .icons {
+  position: absolute;
+  top: 0;
+  right: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx; 
+  width: 56rpx; 
+  height: 100%; 
+  text-align: center;
+}
+
+.popup-wrapper {
+  /* position: absolute; */
+}
+
+.popup-content-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.popup-content .item{
+  float: left;
+  width: 116rpx;
+  line-height: 76rpx;
+  text-align: center;
+}
+
+/* 问题 */
+.question-wrapper {
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.question-anwser {
+  position: relative;
+}
+
+.answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-item {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 100rpx;
+}
+
+.answer-pic {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.answer-item .bg-img {
+  height: 100rpx;
+  width: 80%;
+  background-size: contain;
+  overflow: visible;
+}
+
+.question-anwser .check {
+  position: absolute; 
+  bottom: 6rpx;
+  left: 52rpx;
+}
+
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.front-next {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tips {
+  margin: 0 30rpx 0 30rpx;
+  padding: 0 30rpx 0 30rpx;
+}
+
+.img {
+  margin: 0 30rpx 30rpx 30rpx;
+}
+
+.img .confirm {
+    width: 66rpx;
+    height: 66rpx;
+}

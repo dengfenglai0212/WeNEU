@@ -1,0 +1,95 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+<card-title text="成绩一览" sub-text="Academic Perf."></card-title>
+<!--成绩信息总览卡片-->
+<view class="bg-white margin-top margin-right margin-left shadow-md radius-lg animation-slide-bottom padding">
+  <view class="header">
+    <view class="title">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{title}}">
+        <view class="picker">
+          {{title[index]}}
+          <view class="comment text-blue">
+            <text class='icon-refresh'> 点击切换</text>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view>
+      <view class="info">
+        <view>
+          <text>累计绩点 </text>
+          <text class='text-blue'> {{(cjInfo.gpa==''||cjInfo.gpa==null)?'暂未提供':cjInfo.gpa}}</text>
+        </view>
+        <view>
+          <text>学期绩点 </text>
+          <text class='text-blue'> {{neu == null||cjInfo.courses[0].name == null ? '暂未提供':neu}} </text>
+        </view>
+      </view>
+      <view class="info">
+        <view>
+          <text>学期课程数量 </text>
+          <text class='text-blue'> {{cjInfo.courses[0].name == null ? '0':cjInfo.courses.length}}</text>
+        </view>
+        <view>
+          <text>学期课程总学分 </text>
+          <text class='text-blue'> {{cjInfo.courses[0].name == null ? '0':sum_credit}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--本科生-->
+<block wx:if="{{loading == true}}">
+  <block wx:if="{{isGra == 0}}">
+    <view wx:if="{{cjInfo.courses[0].name == null}}" class="bg-white margin-top margin-right margin-left shadow-md radius-lg animation-slide-bottom padding">
+      <empty-state title="无可查看的成绩" description="本学期成绩未出，请静候其现。" icon="magic">
+      </empty-state>
+    </view>
+    <view wx:else class="bg-white margin-top margin-right margin-left shadow-md radius-lg animation-slide-bottom padding">
+      <view class="grade-list">
+        <text>课程名</text>
+        <text>学分</text>
+        <text>平时</text>
+        <text>期中</text>
+        <text>期末</text>
+        <text>总分</text>
+      </view>
+      <block wx:for="{{cjInfo.courses}}" wx:key="key">
+        <view class="grade-list {{item.selected ? 'select' : ''}}">
+          <text>{{item.name}}</text>
+          <text>{{item.credit}}</text>
+          <text>{{item.extraData[5].data}}</text>
+          <text>{{item.extraData[4].data}}</text>
+          <text>{{item.extraData[3].data}}</text>
+          <text>{{item.extraData[6].data}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <!--绩点计算器-->
+  <view class="bg-white margin-top margin-right margin-left shadow-md radius-lg animation-slide-bottom padding" bindtap='enter_calculator'>
+    <empty-state title="GPA 计算器" description="十大常用国内高校和留学绩点算法，点此立即使用。" icon="rank">
+    </empty-state>
+  </view>
+</block>
+
+<view>
+  <card-title text="说明" sub-text="Notes"></card-title>
+  <view class="last-info">
+    <text>「上面的成绩准吗？」以上数据仅供参考，不得作为保研、奖学金、成绩单等证明依据。请以教务处发布为准。别忘记参加考评哦。</text>
+  </view>
+  <view class="last-info">
+    <text>「为什么没有排名？」为了您的个人信息安全，weNEU选择放弃绩点排名这一功能。我们不收集您的任何信息，包括您的学号、密码、查询结果等等。您的全部账号密码都保存在您手机本地。
+  </text>
+  </view>
+  <view class="last-info">
+    <text>「学期课程数量是什么？」指的是本学期已出成绩的课程数量，方便大家快速判断有无新成绩揭晓。
+   </text>
+  </view>
+  <view class="last-info">
+    <text>祝愿大家所有的付出都能兑现，所有的梦想都能实现！加油！加油！加油！
+  </text>
+  </view>
+</view>

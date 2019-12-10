@@ -1,0 +1,11 @@
+<view class='channel-card-list' bindtap='enter_channel' data-id="{{channelId}}" data-name="{{name}}">
+  <view class="bg-white margin shadow-md radius-lg animation-slide-bottom">
+    <image class='img' src="https://hdtv.neu6.edu.cn{{snapshotUrl}}"></image>
+    <view class='padding'>
+      <text class='text'>{{name}}</text>
+      <view class='num-text'>
+        <text class='icon-group'></text> {{viewerNum}} 人正在看
+      </view>
+    </view>
+  </view>
+</view>

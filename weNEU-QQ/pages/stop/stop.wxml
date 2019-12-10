@@ -1,0 +1,19 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+<!-- <card-title text="开发者们" sub-text="Developers"></card-title>
+<view class="text-gray margin" style='text-align: justify'>
+  <text class='icon-emoji'> weNEU 作为一个非盈利性的校园信息统合平台，其开发工作亦以兴趣为导向。</text>
+</view> -->
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.2s;" data-url="{{developer.rewardCodeUrl}}">
+  <view class='padding-top padding-bottom'>
+    <text class='text-xxl'> 服务暂停通知 \n</text>
+  </view>
+  <text class='text-gray'> 再次抱歉地通知大家，应学校网络信息安全要求，现对系统进行升级维护，维护期间weNEU微信小程序及QQ小程序将暂停服务。 \n\n</text>
+  <text class='text-lg'> 微信小程序现已即刻关停，QQ小程序受制于功能限制将于近日关停。\n
+服务暂时预期将在国庆节后恢复上线，暂停期间开发组同学将利用这段时间进行服务升级。🚀\n\n同时诚挚欢迎有兴趣有能力加入我们一起开发的同学发送自我介绍或简历至xrwgood@qq.com，邮件主题为【weNEU招新】\n\n
+我们很快将与您再次见面！😉\n</text>
+</view>
+<card-title text="I have a dream"></card-title>
+<view class="last-info">
+  <text>weNEU 有一个梦想，乃为东北大学校园信息化之建设贡献自己的一份力量。我等热爱东北大学，且牢记母校「使命如此其重大，能不奋勉乎吾曹？ 」之教导。\n期与君戮力同心，为东大升A复兴而奋斗！\n迎东大百年，愿母校愈来愈好。</text>
+</view>

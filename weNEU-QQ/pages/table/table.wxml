@@ -1,0 +1,313 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding" wx:if="{{!isLoggedIn}}">
+  <navigator url="/pages/login_eone/login_eone">
+    <empty-state title="请绑定账户后继续" description="点击此处绑定" icon="link">
+    </empty-state>
+  </navigator>
+</view>
+
+<view wx:else class="bg-white margin shadow-md radius-lg animation-slide-bottom padding-top padding-bottom">
+  <van-row style='margin: 15rpx' >
+    <van-col span="2" class="text-sl text-right {{week <=1 ? 'text-grey':'text-black' }} " bindtap="last">
+      <image src="../../images/table/front.png" style="width: {{needSet.picWidth}};height: {{needSet.picWidth}};margin-bottom:10px"></image>
+    </van-col>
+    <van-col span="8" offset="6"> 
+      <picker class="button-sp-area text-black" mode="selector" range="{{array1}}" value="{{index}}" bindchange="listenerPickerSelected">
+        <view class='large-label center-label' style="display:flex;flex-direction:row; justify-content: center; align-items: center;">
+          <view> 第 {{week}} 周</view>
+          <!-- <text class="icon-unfold" style='font-size: 35rpx'></text> -->
+          <view wx:if="{{pulldown}}" style="margin-left:10px">
+             <image src="../../images/table/pulldown.png" style="width: {{needSet.pullDownPic}};height: {{needSet.pullDownPic}};margin-bottom:4px"></image>
+          </view>
+        </view>
+      </picker>
+    </van-col>
+    <!-- <van-col span="4" offset="4" class="text-sl text-left {{week >=25 ? 'text-grey':'text-black' }}">
+     <image src="../../images/table/addCourse.png" style="width:30px;height:30px" bindtap="addCourse"></image>
+    </van-col> -->
+    <van-col span="2" class="text-sl text-left {{week >=25 ? 'text-grey':'text-black' }}" bindtap='next' offset="6">
+       <image src="../../images/table/next.png" style="width: {{needSet.picWidth}};height: {{needSet.picWidth}};margin-bottom:10px"></image>
+    </van-col>
+  </van-row>
+  <view class="table">
+    <view class="tr">
+      <view class="th idx"></view>
+      <view class="th" style='color:{{colorList[0]}};'>周日</view>
+      <view class="th" style='color:{{colorList[1]}};'>周一</view>
+      <view class="th" style='color:{{colorList[2]}};'>周二</view>
+      <view class="th" style='color:{{colorList[3]}};'>周三</view>
+      <view class="th" style='color:{{colorList[4]}};'>周四</view>
+      <view class="th" style='color:{{colorList[5]}};'>周五</view>
+      <view class="th" style='color:{{colorList[6]}};'>周六</view>
+    </view>
+  </view>
+  <view class="top-date">
+    <view class="tr">
+      <view class="th3 idx2"></view>
+      <view class="th2" wx:for="{{dateList}}" wx:key="key">{{item}}</view>
+    </view>
+  </view>
+  <block wx:for="{{[1,2,3,4,5,6]}}" wx:for-item="i" wx:key="td_key">
+    <view class="tr">
+      <view class="idx">{{array[i-1]}}</view>
+      <block wx:for="{{[6,0,1,2,3,4,5]}}" wx:for-item="n" wx:key="listData_key">
+        <view wx:if="{{listData[n][i-1][0]==null}}">
+          <view class="td"></view>
+        </view>
+        <view wx:else bindtap="showDetails" data-details="{{listData[n][i-1]}}" data-position="{{[n,i-1]}}">
+        <view wx:if="{{listData[n][i-1][1]==1}}" class="td-shadow shadow-md bg-yellow animation-scale-up"  style="animation-delay: {{i*0.05}}s;">
+            <text class="ggrid">{{listData[n][i-1][0]}}</text>
+            <text class="ggrid_location">{{listData[n][i-1][2]}}</text>
+          </view>
+          <view wx:else class="td-shadow shadow-md bg-blue animation-scale-up"  style="animation-delay: {{i*0.05}}s;">
+            <text class="ggrid">{{listData[n][i-1][0]}}</text>
+            <text class="ggrid_location">{{listData[n][i-1][2]}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <view class='text-center refresh-tip padding-top'>
+    <text class='icon-question'></text> 课表有更新? 下拉刷新一下吧。
+    <text style="color:#2d8cf0;text-decoration-line: underline;;font-weight:550" bindtap="addCourse" >自定义课表</text>
+  </view>
+</view>
+
+<!-- 选课弹窗 -->
+<van-popup show="{{addCoursePop}}"round custom-style="height: 60%;width:80%" bind:close="onCloseAddCoursePop">
+  <view class="addCrsBt">
+    <view>
+      <image src="../../images/table/delete.png" style="width:25px;height:25px" bindtap="onCloseAddCoursePop"></image>
+    </view>
+    <view>
+      <button class="button" style="width:100%; height: {{needSet.buttonHeight}}">新建课程</button>
+    </view>
+    <view>
+      <image src="../../images/table/confirm.png" style="width:25px;height:25px" 
+bindtap="confirmAdd"></image>
+    </view>
+  </view>
+  <view class="addCrsInput">
+    <view class="input-wrapper" style="border-color:{{color}}">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/courseName.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseName">
+        <van-field
+        value="{{ courseName }}"
+        placeholder="课程名称"
+        border="{{ false }}"
+        bind:change="onChangeCourseName"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color1}};">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/location.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseLoaction">
+        <van-field
+        value="{{ courseLocation }}"
+        placeholder="地点"
+        border="{{ false }}"
+        bind:change="onChangeCourseLocation"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color2}};overflow: hidden; padding: 9rpx;">
+      <view style="margin:4px;margin-left:10px" >
+        <image src="../../images/table/time.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line2'></view>
+      <view>
+      </view>
+      <view bindtap="chooseTime">
+        <van-field
+         disabled
+         placeholder="时间"
+         border="{{ false }}"
+         bind:change="onChangeCourseTime"
+         custom-style="background-color:#f8f8f9;width:90%;padding: 0 0 0 12rpx;"
+         bindtap="showTimePop"
+         placeholder-style="color:{{timeColor}}"
+         >
+          <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{!chooseTimePop}}" src="../../images/table/pulldown.png" style="width:10px;height:10px" ></image>
+            <image wx:else src="../../images/table/pullup.png" style="width:10px;height:10px"></image>
+          </view>
+         </van-field>
+         <view style="font-size:15px;margin-left:14px;margin-bottom:4px;color:#495060">
+          <text decode="{{true}}">{{currentDate2}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{currentTime2}}</text>
+         </view>
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color3}};">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/remark.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseRemarks">
+        <van-field
+        value="{{ remarks }}"
+        placeholder="备注"
+        border="{{ false }}"
+        bind:change="onChangeRemarks"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+  </view>
+</van-popup> 
+
+<!-- 修改课程信息弹窗 -->
+<van-popup show="{{modifyCoursePop}}"round custom-style="height: 60%;width:80%" bind:close="onCloseModifyCoursePop">
+  <view class="addCrsBt">
+    <view>
+      <image src="../../images/table/delete.png" style="width:25px;height:25px" bindtap="onCloseModifyCoursePop"></image>
+    </view>
+    <view>
+      <button class="button" style="width: 100%; height: {{needSet.buttonHeight}}">详细信息</button>
+    </view>
+    <view>
+      <image src="../../images/table/modify.png" style="width:25px;height:25px" 
+bindtap="confirmModify"></image>
+    </view>
+  </view>
+  <view class="addCrsInput">
+    <view class="input-wrapper" style="border-color:{{color}};">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/courseName.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseName">
+        <van-field
+        value="{{ courseName2 }}"
+        placeholder="课程名称"
+        border="{{ false }}"
+        bind:change="onChangeCourseName2"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color1}};">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/location.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseLoaction">
+        <van-field
+        value="{{ courseLocation2 }}"
+        placeholder="地点"
+        border="{{ false }}"
+        bind:change="onChangeCourseLocation2"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color2}};overflow: hidden; padding: 9rpx;">
+      <view style="margin:4px;margin-left:10px" >
+        <image src="../../images/table/time.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line2'></view>
+      <view>
+      </view>
+      <view>
+        <van-field
+         disabled
+         placeholder="时间"
+         border="{{ false }}"
+         custom-style="background-color:#f8f8f9;width:90%;padding: 0 0 0 12rpx;"
+         placeholder-style="color:{{timeColor}}"
+         >
+          <view slot="right-icon" size="small" type="primary">
+            <image src="../../images/table/pulldown.png" style="width:10px;height:10px" ></image>
+            <!-- <image wx:else src="../../images/table/pullup.png" style="width:10px;height:10px"></image> -->
+          </view>
+         </van-field>
+         <view style="font-size:15px;margin-left:14px;margin-bottom:4px;color:#495060">
+          <text decode="{{true}}">{{currentDate3}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{currentTime4}}</text>
+         </view>
+      </view>
+    </view>
+    <view class="input-wrapper" style="border-color:{{color3}};">
+      <view style="margin:4px;margin-left:8px">
+        <image src="../../images/table/remark.png" style="width:25px;height:25px"></image>
+      </view>
+       <view class='line'></view>
+      <view>
+      </view>
+      <view bindtap="chooseRemarks">
+        <van-field
+        value="{{ remarks2 }}"
+        placeholder="备注"
+        border="{{ false }}"
+        bind:change="onChangeRemarks2"
+        custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
+         />
+      </view>
+    </view>
+     <button bindtap="deleteCourse" class="deleteButton" style="width: 160rpx;">删除</button>
+  </view>
+</van-popup> 
+
+
+<!-- 时间选择弹窗 -->
+<van-popup show="{{chooseTimePop}}"round position="bottom" custom-style="height: 400rpx;width:70%;" bind:close="onCloseChooseTimeePop"
+>
+<view style="display:flex;flex-direction:row">
+  <view style="width:50%;margin-top:15px;margin-right:15px;margin-left:15px;height: 300rpx;">
+    <van-picker
+    default-index="{{ 2 }}"
+    columns="{{ timePicker }}"
+    item-height="30"
+    bind:change="onChangeTimePick"
+    />
+  </view>
+  <view class="coursetime">
+    <van-row gutter="20">
+      <van-col span="12">
+         <van-button color="{{buttonColor}}"  size="mini" round bindtap="choose0">1-2节</van-button>
+      </van-col>
+      <van-col span="12">
+         <van-button color="{{buttonColor1}}" type="default" size="mini" round bindtap="choose1">3-4节</van-button>
+      </van-col>
+    </van-row>
+    <van-row gutter="20">
+      <van-col span="12">
+         <van-button color="{{buttonColor2}}" type="default" size="mini" round bindtap="choose2">5-6节</van-button>
+      </van-col>
+      <van-col span="12">
+         <van-button color="{{buttonColor3}}" type="default" size="mini" round bindtap="choose3">7-8节</van-button>
+      </van-col>
+    </van-row>
+    <van-row gutter="20">
+      <van-col span="12">
+         <van-button color="{{buttonColor4}}" type="default" size="mini" round bindtap="choose4">9-10节</van-button>
+      </van-col>
+      <van-col span="12">
+         <van-button color="{{buttonColor5}}" type="default" size="mini" round bindtap="choose5">11-12节</van-button>
+      </van-col>
+    </van-row>
+  </view>
+  <view style="position:fixed;bottom:6px;right:50%;" bindtap="confirmTime">
+      <image src="../../images/table/confirm.png" style="width:25px;height:25px"></image>
+  </view>
+</view>
+</van-popup>
+
+<van-toast id="van-toast" />

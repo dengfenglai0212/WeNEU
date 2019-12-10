@@ -1,0 +1,46 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<van-tabs active="{{ active }}" color="#505050">
+  <van-tab title="热门">
+    <block wx:for="{{hot_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+
+  <van-tab title="央视">
+    <block wx:for="{{center_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+
+  <van-tab title="卫视">
+    <block wx:for="{{province_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+
+  <van-tab title="辽宁">
+    <block wx:for="{{liaoning_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+
+  <van-tab title="电影">
+    <block wx:for="{{movie_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+
+  <van-tab title="全部">
+    <block wx:for="{{all_list.channelList}}" wx:key="index">
+      <tv-card channelId="{{item.channelId}}" name="{{item.name}}" viewerNum="{{item.viewerNum}}" snapshotUrl="{{item.snapshotUrl}}"></tv-card>
+    </block>
+  </van-tab>
+</van-tabs>
+
+<view class='deliver-button bg-blue shadow-md animation-scale-up' bindtap='deliver' bindtap="toTop">
+  <view class='deliver-text text-sl'>
+    <text class='icon-top'></text>
+  </view>
+</view>

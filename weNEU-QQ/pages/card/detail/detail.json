@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "一卡通-交易汇总查询",
+  "usingComponents": {
+    "van-datetime-picker": "../../../dist_vant/datetime-picker/index",
+    "van-popup": "../../../dist_vant/popup/index",
+    "van-button": "../../../dist_vant/button/index",
+    "van-icon": "../../../dist_vant/icon/index",
+    "ec-canvas": "../../../ec-canvas/ec-canvas"
+  }
+}

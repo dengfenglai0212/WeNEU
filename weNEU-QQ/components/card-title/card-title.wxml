@@ -1,0 +1,24 @@
+<!--components/card-title/card-title.wxml-->
+<view style='margin-top: 30rpx; margin-bottom: 15rpx; padding-left: 40rpx; padding-right: 40rpx; width: 100%; max-width: 100%; height: 50rpx;'>
+  <view style='margin-top: 5rpx;float:left; font-size: 40rpx; color: #66666; z-index: 999'>
+
+    <wxs module="m1">
+      var selfDefIcon = function(String) {
+        var pattern = "self-def-{1,1}";
+        var reg = getRegExp(pattern, "img");
+        return reg.test(String);
+      }
+      module.exports.selfDefIcon = selfDefIcon;
+    </wxs>
+
+    <view style="display: inline-block;" wx:if="{{m1.selfDefIcon(icon)}}">
+      <image class="self-def-icon" src="{{picSrc}}"></image>
+    </view>
+    <view style="display: inline-block;" wx:if="{{icon!=null && !m1.selfDefIcon(icon)}}">
+      <text class='icon-{{icon}}'></text>
+    </view>
+    
+    {{text}}  
+   </view>
+  <view style='float:right; font-size: 40rpx; color: #aaaaaa; z-index: 0'>{{subText}}</view>
+</view>

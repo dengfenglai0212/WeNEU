@@ -1,0 +1,92 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/calendar/calendar",
+    "pages/login_eone/login_eone",
+    "pages/functionality/functionality",
+    "pages/table/table",
+    "pages/grade/grade",
+    "pages/me/me",
+    "pages/community/deliver/deliver",
+    "pages/splash-screen/splash-screen",
+    "pages/math_reserve/math_reserve",
+    "pages/grade/calculator/calculator",
+    "pages/tv/tv",
+    "pages/borrow/borrow",
+    "pages/exam/exam",
+    "pages/community/community",
+    "pages/library/library",
+    "pages/search/search",
+    "pages/study/study",
+    "pages/reward/reward",
+    "pages/ipgw/ipgw",
+    "pages/contact/contact",
+    "pages/map/map",
+    "pages/community/someone/someone",
+    "pages/map/detail/detail",
+    "pages/community/detail/detail",
+    "pages/bigdata/bigdata",
+    "pages/card/card",
+    "pages/about/about",
+    "pages/card/detail/detail",
+    "pages/library_index/location/location",
+    "pages/news/news",
+    "pages/library_index/library_index",
+    "pages/guide/guide",
+    "pages/bus/bus",
+    "pages/contact/detail/detail",
+    "pages/news/detail/detail",
+    "pages/tv/detail/detail",
+    "pages/navigate/web/web",
+    "pages/search/detail/detail",
+    "pages/question_bank/question_bank",
+    "pages/question_bank/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f1f1f1",
+    "backgroundColor": "#f1f1f1",
+    "navigationBarTitleText": "在东大",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "color": "#404040",
+    "selectedColor": "#404040",
+    "list": [
+      {
+        "iconPath": "images/core/tabbar/home-16.png",
+        "selectedIconPath": "images/core/tabbar/home-16@select.png",
+        "pagePath": "pages/index/index",
+        "text": "速览"
+      },
+      {
+        "iconPath": "images/core/tabbar/function-16.png",
+        "selectedIconPath": "images/core/tabbar/function-16@select.png",
+        "pagePath": "pages/functionality/functionality",
+        "text": "百宝箱"
+      },
+      {
+        "iconPath": "images/core/tabbar/user-16.png",
+        "selectedIconPath": "images/core/tabbar/user-16@select.png",
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "top-bar": "/components/top-bar/top-bar",
+    "card-title": "/components/card-title/card-title",
+    "weather-card": "/components/weather-card/weather-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "van-loading": "../../dist_vant/loading/index",
+    "message-card": "/components/message-card/message-card",
+    "library-borrow-record-card": "/components/library-borrow-record-card/library-borrow-record-card",
+    "tv-card": "/components/tv-card/tv-card"
+  },
+  "groupIdList":["721423324"],
+  "sitemapLocation": "sitemap.json"
+}

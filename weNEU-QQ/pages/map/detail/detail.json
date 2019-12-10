@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "爱心雨伞",
+  "usingComponents": {
+    "demo-block": "../../../dist_vant/demo-block/index"
+  }
+}

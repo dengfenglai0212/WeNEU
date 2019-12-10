@@ -1,0 +1,7 @@
+/* components/card-title/card-title.wxss */
+.self-def-icon {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: bottom;
+    background-size: cover;
+}

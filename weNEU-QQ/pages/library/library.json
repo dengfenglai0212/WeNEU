@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "图书馆-馆藏图书检索",
+  "usingComponents": {
+    "demo-block": "../../dist_vant/demo-block/index",
+    "van-search": "../../dist_vant/search/index"
+  }
+  } 

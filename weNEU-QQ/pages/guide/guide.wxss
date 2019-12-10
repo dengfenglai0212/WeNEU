@@ -1,0 +1,61 @@
+/**detail.wxss (common)**/
+.container{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    background-color:#F1F1F1;
+
+}
+.container1{
+    margin-left: 0;
+    margin-right: 0;
+    background-color:#fff;
+
+}
+.title{
+    font-size: 18pt;
+    font-weight: bold;
+    margin-top: 40rpx;
+    line-height: 140%;
+    word-break: break-all;
+}
+
+.img-full{
+    margin-left:0rpx;
+    text-align: center;
+    width: 750rpx;
+}
+
+.img-half{
+    width: 375rpx;
+    text-align: center;
+    margin-left: 187.5rpx;
+    margin-top: 30rpx;
+}
+
+.detail{
+    font-size: 30rpx;
+    line-height: 150%;
+    padding: 50rpx 15rpx 200rpx;
+    word-break: break-all;
+    text-align: justify;
+    width: 95%;
+    color: #444;
+}
+
+.detail-2{
+    font-size: 30rpx;
+    line-height: 150%;
+    word-break: break-all;
+    text-align: justify;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+    color: #444;
+}
+
+.school-music{
+  margin-top: 30rpx;
+  margin-left: 100rpx;
+}

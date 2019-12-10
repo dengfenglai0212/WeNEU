@@ -1,0 +1,30 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<van-search value="{{ value }}" bind:search="search" bind:change="bindSearchInput" placeholder="请输入书籍关键词" />
+
+<scroll-view class="result-list" enable-back-to-top scroll-y wx:if="{{show}}">
+  <block wx:for="{{bookList}}" wx:key="index">
+    <view wx:if="{{item.bookname!=null}}">
+      <view class="result" bindtap='showDetail' data-location='{{item.location}}' data-searchno='{{item.searchno}}'>
+        <image lazy-load class="image-book" src="{{item.img}}"></image>
+        <view class="info">
+          <view class="row">
+            <view>{{item.bookname}}</view>
+          </view>
+          <view class="press">
+            <view>{{item.press}}</view>
+            <view>{{item.author}}</view>
+            <view>{{item.year}}　|　{{item.bookstate}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+<demo-block title="提示">
+  <view class="last-info">
+    <text>请输入任意书籍的名称，搜索结果包括与名称关键字匹配的书籍列表。您可以点击图书查看该书的详细架位及馆藏数量(总数/在馆数量)\n更强大的馆藏检索正在开发中，敬请期待！</text>
+  </view>
+</demo-block>

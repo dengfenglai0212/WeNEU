@@ -1,0 +1,148 @@
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding" wx:if="{{isLoggedIn}}">
+  <navigator url="/pages/login_eone/login_eone">
+    <empty-state title="请绑定账户后继续" description="点击此处绑定" icon="link">
+    </empty-state>
+  </navigator>
+</view>
+
+<view wx:else class="wrapper" style="height: {{wrapperHeight}}">
+    <!-- 做题统计信息 -->
+    <view class="overview-wrapper">
+        <view class="margin padding radius-lg overview-box">
+            <view class="finish-rate animation-scale-down">
+                <view class="finish-wrapper" style="bottom: {{bottom}};">
+                    <view class="text-center">{{fulfilOne}} %</view>
+                    <view>题库完成度</view>
+                    <view class="line radius"></view>
+                </view>
+            </view>
+            <view class="text-center">
+                <van-circle value="{{ value }}" color="{{ gradientColor }}" text="{{value}}" stroke-width="{{strokeWidth}}" size="{{circleSize}}" style="font-size: 66rpx; display: {{circleDis}}"/>
+                <view class="margin" style="margin-top: 10rpx;">题目完成数</view>
+            </view>
+            <view class="finish-rate animation-scale-down">
+                <view class="finish-wrapper" style="bottom: {{bottom}};">
+                    <view class="text-center">{{fulfilTwo}} %</view>
+                    <view>平均正确率</view>
+                    <view class="line radius"></view>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+
+    <!-- 圆弧 -->
+    <view class="arc"></view>
+
+    <!-- 功能模版 -->
+    <view class="animation-slide-bottom function-wrapper">
+        <view class="margin padding shadow-md bg-white radius-lg function-box">
+            <text class="text-sm">刷题统计下拉刷新</text>
+            <view class="function-grid">
+                <view class="function-grid-item" id="wrongBook" bind:tap="functionClick">
+                    <view class="icons-wrong">
+                        <image src="../../images/quiz/error-book.png" style="background-size: cover; width: 40px; height: 40px;">
+                        </image>
+                    </view>
+                    <text class="text-sm">错题本</text>
+                </view>
+                <view class="function-grid-item f-g-center" id="myFavor" bind:tap="functionClick">
+                    <view class="icons-favor">
+                        <image src="../../images/quiz/my-collection.png" style="background-size: cover; width: 40px; height: 40px;">
+                        </image>
+                    </view>
+                    <text class="text-sm">我的收藏</text>
+                </view>
+                <view class="function-grid-item" id="testRecord" bind:tap="functionClick">
+                    <view class="icons-record">
+                        <image src="../../images/quiz/do-history.png" style="background-size: cover; width: 40px; height: 40px;">
+                        </image>
+                    </view>
+                    <text class="text-sm">做题记录</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 习题册 -->
+    <view class="animation-slide-bottom exercise-book-wrapper">
+        <view class="margin padding shadow-md bg-white radius-lg exercise-book-box">
+            <block>
+                <button class="subject-selection cu-btn lg bg-white" bind:tap="showPopup" style="padding: 0;" id="GS">
+                    <view class="subject-name">
+                        <text class="icon-write subject-icon"></text>
+                        <text>高等数学</text>
+                    </view>
+                    <view>
+                        <text class="icon-right"></text>
+                    </view>
+                </button>
+                <van-divider custom-style="height: 24rpx; margin: 6rpx 0;"/>
+            </block>
+
+            <block>
+                <button class="subject-selection cu-btn lg bg-white" bind:tap="showPopup" style="padding: 0;" id="GL">
+                    <view class="subject-name">
+                        <text class="icon-edit subject-icon"></text>
+                        <text>概率统计</text>
+                    </view>
+                    <view>
+                        <text class="icon-right"></text>
+                    </view>
+                </button>
+                <van-divider custom-style="height: 24rpx; margin: 6rpx 0;"/>
+            </block>
+
+            <block>
+                <button class="subject-selection cu-btn lg bg-white" bind:tap="showPopup" style="padding: 0;" id="FB">
+                    <view class="subject-name">
+                        <text class="icon-form subject-icon"></text>
+                        <text>复变函数</text>
+                    </view>
+                    <view>
+                        <text class="icon-right"></text>
+                    </view>
+                </button>
+                <van-divider custom-style="height: 24rpx; margin: 6rpx 0;"/>
+            </block>
+
+            <block>
+                <button class="subject-selection cu-btn lg bg-white" bind:tap="showPopup" style="padding: 0;" id="XD">
+                    <view class="subject-name">
+                        <text class="icon-cascades subject-icon"></text>
+                        <text>线性代数</text>
+                    </view>
+                    <view>
+                        <text class="icon-right"></text>
+                    </view>
+                </button>
+            </block>
+        </view>
+    </view>
+
+    <!-- 弹出层选题 -->
+    <view class="popup-wrapper">
+        <van-popup 
+            show="{{ show }}" 
+            bind:close="onClose" 
+            round="true"
+            custom-style="width: 90%; height: {{popHeight}};">
+            <view>
+                <view class="popup-title margin">
+                    <text class="icon-write" style="margin: 0 8rpx;"></text>
+                    <text>选择练习章节</text>
+                    <text class="icon-close" style="float: right; margin-right: 16rpx; font-size: 46rpx;" bind:tap="onClose"></text>
+                </view>
+                <view class="divider"></view>
+                <we-collapse bind:confirm="confirm" datas="{{datas}}" wx:if="{{show}}"></we-collapse>
+            </view>
+        
+        </van-popup>
+    </view>  
+
+</view>
+
+<!-- 练习确认 -->
+<van-dialog id="van-dialog" />
+<!-- 提示框 -->
+<van-toast id="van-toast" />

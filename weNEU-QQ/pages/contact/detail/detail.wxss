@@ -1,0 +1,25 @@
+Page {
+  font-size: 30rpx;
+}
+
+.item-text {
+  color: black;
+}
+
+.item-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.item_font {
+  display: flex;
+  margin: 10rpx auto;
+  color: #666;
+  min-width: 150rpx;
+}
+
+.item_info {
+  display: flex;
+  color: #000;
+  margin: 10rpx auto;
+}

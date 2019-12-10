@@ -1,0 +1,30 @@
+<!--components/we-collapse-/we-collapse.wxml-->
+<view class="wrapper">
+    <view class="collapse-header" wx:for="{{datas}}" wx:key="index">
+        <view class="title" bind:tap="open" id="{{index}}">
+            <view class="title-left">
+                <text class="icon-{{item.icon}} icons" wx:if="item.icon != 'undefined' || item.icon != ''"></text>
+                <view class="chapter-title" style="width: 500rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <text>{{item.title}}</text>    
+                </view>
+            </view>
+            <text class="icon-right {{item.choose}}"></text>
+        </view>
+        <view class="content-wrapper animation-slide-bottom" hidden="{{!item.choose}}">
+            <view class="content-item" wx:for="{{item.items}}" wx:for-item="content" wx:key="index">
+                <view class="sub-title">
+                    <text>{{content.name}}</text>
+                </view>
+                <view>
+                    <checkbox-group>
+                        <checkbox id="{{content.name}}" value="{{content.name}}" checked="{{content.checked}}" class="round grey" bind:tap="checkboxChange"/>
+                    </checkbox-group>
+                </view>
+            </view>
+        </view>
+        <view class="divider"></view>
+    </view>
+</view>
+<view class="img">
+    <image src="../../images/table/confirm.png" class="confirm" bind:tap="confirm"></image>
+</view>

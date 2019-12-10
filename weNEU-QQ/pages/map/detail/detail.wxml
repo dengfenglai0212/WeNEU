@@ -1,0 +1,18 @@
+<!--pages/map/detail/detail.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<view class='myPage'>
+  <image wx:if="{{result.code==01}}" class='top-image' src='/images/index/map/success.png'></image>
+  <image wx:if="{{result.code==02}}" class='top-image' src='/images/index/map/fail.png'></image>
+
+  <text class='mid-info'>{{result.info}}</text>
+  <text class='mid-tip'>{{result.tip}}</text>
+  <text class='mid-time'>{{result.time}}</text>
+</view>
+
+<demo-block title="提示" wx:if="{{result.code==01||result.code==02}}">
+  <view class="last-info">
+    <text>爱心雨伞由东北大学学生会负责运营，使用过程中出现问题请联系1xxxxxxxxxx。\n请大家爱惜使用雨伞，记得谢谢阿姨哦。</text>
+  </view>
+</demo-block>

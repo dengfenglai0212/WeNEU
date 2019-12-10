@@ -1,0 +1,32 @@
+/* pages/map/map.wxss */
+#map{
+  position: fixed;
+  width: 750rpx;
+  min-height:88%;
+}
+
+.bottom-scan{
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  min-height:12%;
+  background: #595959;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scan-text {
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 5rpx;
+}

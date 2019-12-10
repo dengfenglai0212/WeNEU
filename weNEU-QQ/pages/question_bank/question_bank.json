@@ -1,0 +1,14 @@
+{
+    "navigationBarTitleText": "我的题库",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "van-divider": "../../../vant_weapp/components/dist/divider/index",
+        "van-grid": "../../../vant_weapp/components/dist/grid/index",
+        "van-grid-item": "../../../vant_weapp/components/dist/grid-item/index",
+        "van-circle": "../../../vant_weapp/components/dist/circle/index",
+        "van-popup": "../../../vant_weapp/components/dist/popup/index",
+        "we-collapse": "../../../components/we-collapse/we-collapse",
+        "van-dialog": "../../dist_vant/dialog/index",
+        "van-toast": "../../../vant_weapp/components/dist/toast/index"
+    }
+}

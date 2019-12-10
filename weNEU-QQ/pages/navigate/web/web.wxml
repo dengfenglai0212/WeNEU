@@ -1,0 +1,4 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<web-view style="style='max-height: calc(100vh - 100rpx - {{CustomBar+StatusBar}}px);'" src="{{url}}"></web-view>

@@ -1,0 +1,113 @@
+<!--pages/tv/detail/detail.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<view>
+  <video class='video' src="{{address}}" controls autoplay="true"></video>
+</view>
+<!--节目信息-->
+<demo-block title="节目信息">
+</demo-block>
+
+<van-cell title="{{title}}" value="{{channel}}" size="large" label="{{label}}" />
+<view wx:if="{{state==1}}">
+  <van-cell title="返回直播" bind:click="return_live" is-link/>
+</view>
+<view>
+  <van-cell title="刷新" bind:click="refresh_info" is-link/>
+</view>
+
+<demo-block title="回放">
+</demo-block>
+<van-tabs active="{{ active }}"  color="#505050">
+  <van-tab title="{{replay_list[7].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[7].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link wx:if="{{item.start==1}}" />
+      </view>
+
+      <view wx:for="{{replay_list[7].list}}" wx:key="key">
+        <van-cell value="{{item.startTime1}} - {{item.endTime1}}" wx:if="{{item.start==2}}" bind:click="return_live" is-link>
+          <view slot="title">
+            <span class="van-cell-text">{{item.title}}</span>
+            <van-tag plain type="success">直播中</van-tag>
+          </view>
+        </van-cell>
+      </view>
+
+      <view wx:for="{{replay_list[7].list}}" wx:key="key">
+        <van-cell value="{{item.startTime1}} - {{item.endTime1}}" wx:if="{{item.start==0}}">
+          <view slot="title">
+            <span class="van-cell-text">{{item.title}}</span>
+            <van-tag plain type="primary">即将开始</van-tag>
+          </view>
+        </van-cell>
+      </view>
+
+    </van-cell-group>
+  </van-tab>
+
+  <van-tab title="{{replay_list[6].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[6].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[5].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[5].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[4].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[4].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[3].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[3].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[2].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[2].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[1].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[1].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+  <van-tab title="{{replay_list[0].date}}">
+    <van-cell-group>
+      <view wx:for="{{replay_list[0].list}}" wx:key="key">
+        <van-cell title="{{item.title}}" value="{{item.startTime1}} - {{item.endTime1}}" bind:click="changeTime" data-start="{{item.startTime}}" data-end="{{item.endTime}}" data-start1="{{item.startTime1}}" data-end1="{{item.endTime1}}" data-title="{{item.title}}"
+          is-link/>
+      </view>
+    </van-cell-group>
+  </van-tab>
+</van-tabs>
+
+<demo-block title="提示">
+  <view class="last-info">
+    <text>直播信息来自「东北大学IPv6视频直播测试站」(https://hdtv.neu6.edu.cn)。感谢直播站提供的技术支持。\n在校园网环境下观看直播视频高清免流量。</text>
+  </view>
+</demo-block>

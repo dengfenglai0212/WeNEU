@@ -1,0 +1,18 @@
+<!--pages/grant-permission/grant-permission.wxml-->
+<!--未登录界面-->
+<block>
+<!--<top-bar hasBack="{{false}}"></top-bar>-->
+  <view class='padding margin text-center'>
+    <view class="padding-xl bg-white radius shadow">
+      <view class="text-center">
+        <text class='text-xl'>欢迎使用 weNEU \n</text>
+        <br/>
+        <text class='text-sm text-gray'>我们很快就可以开始， \n 只需您授权我们使用您的账户登录。 \n</text>
+        <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class='cu-btn round bg-gradual-blue shadow margin lg'>
+          <text class='icon-weixin lg'> 登录 </text>
+        </button>
+        <text class='text-sm text-gray'>Powered by UUIA Framework</text>
+      </view>
+    </view>
+  </view>
+</block>

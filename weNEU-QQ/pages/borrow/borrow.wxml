@@ -1,0 +1,4 @@
+<!--pages/jy/jy.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<library-borrow-record-card show-details="{{true}}"></library-borrow-record-card>

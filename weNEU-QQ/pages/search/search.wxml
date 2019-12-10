@@ -1,0 +1,31 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<van-search value="{{ value }}" bind:search="search" bind:change="bindSearchInput" placeholder="请输入教室/班级/教师关键词" />
+
+<scroll-view style="height:{{height}}px;" class="results" enable-back-to-top scroll-y>
+  <block wx:for="{{resultList}}" wx:key="index">
+    <navigator url="/pages/search/detail/detail?type={{item.type}}&code={{item.code}}&name={{item.name}}">
+      <view class="result" data-location='{{item.location}}' data-searchno='{{item.searchno}}'>
+        <image lazy-load class="image-book" wx:if="{{item.type==='class'}}" src="https://ws4.sinaimg.cn/large/006tNbRwly1fydcv9i814j3074074aa5.jpg"></image>
+                <image lazy-load class="image-book" wx:if="{{item.type==='classroom'}}" src="https://ws1.sinaimg.cn/large/006tNbRwly1fydcv98jjcj30740743yc.jpg"></image>
+                        <image lazy-load class="image-book" wx:if="{{item.type==='teacher'}}" src="https://ws4.sinaimg.cn/large/006tNbRwly1fydcv9e16dj3074074glm.jpg"></image>
+        <view class="info">
+          <view class="row">
+            <view>{{item.name}}</view>
+          </view>
+          <view class="press">
+            <view>类型:{{item.type}}</view>
+            <view>代码:{{item.code}}</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</scroll-view>
+
+<demo-block title="提示">
+  <view class="last-info">
+    <text>请输入任意教室门牌号、班级名称或教师姓名的全部或部分。如“软英1602”，“信息A101”或“吕富媛”等。搜索结果包括此关键字对应的集体本学期的全部课程。\n检索需要耗费一定时间，还请您耐心等候。</text>
+  </view>
+</demo-block>

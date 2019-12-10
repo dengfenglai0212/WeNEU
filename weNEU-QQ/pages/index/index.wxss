@@ -1,0 +1,307 @@
+Page {
+  background-color: #f1f1f1;
+  min-height: calc(100vh - 92rpx);
+  padding-bottom: 92rpx;
+  position: relative;
+}
+
+/* 广告位 */
+.swiper-container {
+  position: relative;
+  margin-top: 0rpx;
+}
+
+.swiper_box {
+  height: 320rpx;
+}
+
+.swiper-item {
+  background: green;
+}
+
+swiper-item.image {
+  display: inline-block;
+  overflow: hidden;
+  height: 320rpx;
+}
+
+.swiper-container .dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-container .dots .dot {
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.6s;
+  opacity: 0.5;
+}
+
+.swiper-container .dots .dot.active {
+  width: 14rpx;
+  opacity: 1;
+}
+
+.page__bd, .weui-panel {
+  margin-top: 20rpx;
+}
+
+.page__hd {
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.weui-footer {
+  margin: 50rpx 0;
+}
+
+.weui-center {
+  text-align: center;
+}
+
+.border-shadow {
+  border: 1px #dee1e8 solid;
+  border-radius: 15rpx;
+  box-shadow: 0 10rpx 35rpx #dee1e8;
+}
+
+.border-shadow .weui-panel__hd {
+  padding: 15rpx 30rpx 15rpx;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weui-panel__hd {
+  color: #333;
+  font-size: 15px;
+  padding: 10px 15px;
+}
+
+.weui-panel__hd:after {
+  left: 0px;
+}
+
+.weui-media-box__desc {
+  display: inherit;
+  line-height: 1.8;
+  color: #555;
+}
+
+button[type="primary"][plain] {
+  color: #fff;
+  border: 1px solid #96deda;
+  background-image: linear-gradient(-45deg, #96deda 0%, #8ec5fc 100%);
+}
+
+.button-hover[type="primary"][plain] {
+  color: #fff;
+  border-color: #96deda;
+  opacity: 0.6;
+}
+
+button[type="default"][plain] {
+  color: #fff;
+  border: 1px solid #fbc2eb;
+  background-image: linear-gradient(-45deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.button-hover[type="default"][plain] {
+  color: #fff;
+  border-color: #fbc2eb;
+  opacity: 0.6;
+}
+
+.weui-cells__tips {
+  padding-left: 0px;
+}
+
+.page__hd .weui-media-box__title {
+  font-size: 30rpx;
+}
+
+.page__hd .weui-media-box__title_in-text {
+  margin-bottom: 0;
+}
+
+.page__hd .weui-media-box__desc {
+  font-size: 19rpx;
+}
+
+.page__hd .weui-panel__hd {
+  font-size: 30rpx;
+}
+
+.main-card {
+  padding-bottom: 300rpx;
+}
+
+.main-card-item {
+  font-size: 25rpx;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-card-item navigator {
+  display: flex;
+  flex-direction: column;
+}
+
+page .navigator-hover {
+  background-color: rgba(100, 100, 100, 0.1);
+  opacity: 0.8;
+}
+
+.card-item-hd-box{
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.card-item-hd {
+  display: flex;
+  align-items: center;
+  height: 75rpx;
+  margin-left: 30rpx;
+}
+
+.card-item-bd {
+  padding: 20rpx 25rpx 30rpx 0;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-hd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-right {
+  font-size: 30rpx;
+  line-height: 1.2;
+  display: flex;
+  color: #505050;
+  flex-direction: column;
+}
+
+.card-info-name {
+  font-size:30rpx;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #505050;
+}
+
+/**今日课表**/
+.main-card-item#kb .card-item-bd {
+  padding: 0;
+  margin-right: 25rpx;
+}
+
+.main-card-item .calendar-right {
+  float: right;
+}
+
+.kb-nothing {
+  align-items: center;
+  justify-content: center;
+  font-size: 11pt;
+  min-height: 150rpx;
+}
+
+.kb-open {
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #666;
+  height: 90rpx;
+}
+
+.kb-item {
+  display: flex;
+  height: 120rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kb-item-left {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+
+.kb-item-what {
+  font-size: 30rpx;
+  line-height: 200%;
+  color: #777;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis; /* 省略号 */
+  overflow: hidden;
+}
+
+.kb-item-w {
+  font-size: 14pt;
+  line-height: 200%;
+  color: #777;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.kb-item-when {
+  line-height: 125%;
+  color: #aaa;
+  font-size: 30rpx;
+}
+
+.kb-item-where {
+  flex: 0 0 auto;
+  font-size: 40rpx;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/**一卡通**/
+.ykt-balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+  padding: 25rpx 0 30rpx;
+}
+
+.ykt-balance-text {
+  font-size: 17pt;
+  color: #000000;
+}
+
+.ykt-balance-value {
+  font-size: 58pt;
+  color: #505050;
+}
+
+.ykt-title {
+  line-height: 1.2;
+  font-size: 30rpx;
+  color: #aaa;
+}
+

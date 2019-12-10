@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "banner-swipper": "/components/banner-swiper/banner-swiper",
+    "van-toast": "../../dist_vant/toast/index"
+  }
+}

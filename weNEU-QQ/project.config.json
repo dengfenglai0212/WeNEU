@@ -1,0 +1,88 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": true,
+		"checkInvalidKey": true,
+		"remoteDebugLogEnable": false,
+		"sourcemapDisabled": true,
+		"useAlphaLib": true,
+		"nodeModules": true,
+		"uglifyFileName": true,
+		"uploadWithSourceMap": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.4",
+	"appid": "wx195fc0b2361503df",
+	"projectname": "weNEU",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"qqappid": "1109940479",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"qqLibVersion": "1.8.5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "一卡通",
+					"pathName": "pages/card/card",
+					"query": "",
+					"scene": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login_eone/login_eone",
+					"query": "",
+					"scene": ""
+				},
+				{
+					"id": -1,
+					"name": "题库",
+					"pathName": "pages/question_bank/question_bank",
+					"query": "",
+					"scene": ""
+				},
+				{
+					"id": 3,
+					"name": "小练习",
+					"pathName": "pages/question_bank/test/test",
+					"query": "title_0=1.2.2 数列极限的性质(8题)&title_1=1.2.1 数列极限的定义(8题)",
+					"scene": ""
+				}
+			]
+		}
+	}
+}

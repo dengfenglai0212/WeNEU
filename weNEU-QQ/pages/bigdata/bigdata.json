@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "校情大数据",
+  "usingComponents": {
+    "van-tab": "../../dist_vant/tab/index",
+    "van-tabs": "../../dist_vant/tabs/index",
+    "demo-block": "../../dist_vant/demo-block/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,46 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<view class="container">
+  <view>
+    <view class="title">
+      日期选择
+    </view>
+    <view class="ykt-detail">
+      <view class="ykt-content">
+        <view class="ykt-ye-2">
+          <text class="ykt-detail-name">起始日期</text>
+          <view class="ykt-detail-money" bindtap='selectStart'>
+            <text class="ykt-detail-value">{{startDate}}</text>
+          </view>
+        </view>
+
+        <view class="ykt-ye-2">
+          <text class="ykt-detail-name">结束日期</text>
+          <view class="ykt-detail-money" bindtap='selectEnd'>
+            <text class="ykt-detail-value">{{endDate}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="search-button">
+        <van-icon name="search" color='white' size='50rpx' bind:click="search" />
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="title">
+      查询结果
+    </view>
+    <view class="result">
+      <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{ show1 }}" position="bottom" overlay="{{ false }}" bind:close="onClose1">
+  <van-datetime-picker title="选择起始日期" type="date" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{maxDate}}" bind:confirm="onClose1" bind:cancel="onCancel1" />
+</van-popup>
+
+<van-popup show="{{ show2 }}" position="bottom" overlay="{{ false }}" bind:close="onClose2">
+  <van-datetime-picker title="选择结束日期" type="date" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{maxDate}}" bind:confirm="onClose2" bind:cancel="onCancel2" />
+</van-popup>

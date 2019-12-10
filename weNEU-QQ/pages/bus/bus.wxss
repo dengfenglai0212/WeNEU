@@ -1,0 +1,16 @@
+.card {
+  padding: 30rpx;
+}
+
+.info-image {
+  margin-top: 30rpx;
+}
+
+.text {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  align-items: center;
+  text-align: center;
+  color: #444;
+  padding: 20rpx;
+}

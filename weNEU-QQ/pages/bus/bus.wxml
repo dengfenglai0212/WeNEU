@@ -1,0 +1,13 @@
+<!--pages/Bus/Bus.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<card-title text="学生班车" sub-text="Bus for Students"></card-title>
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+  <image class='info-image' src="https://s2.ax1x.com/2019/09/07/nlRlDI.jpg" mode="widthFix" />
+</view>
+
+<card-title text="教工班车" sub-text="Bus for Staff"></card-title>
+<view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+  <image class='info-image' src="https://s2.ax1x.com/2019/09/07/nlRQKA.png" mode="widthFix" />
+</view>

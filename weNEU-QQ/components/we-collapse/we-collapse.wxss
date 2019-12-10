@@ -1,0 +1,124 @@
+/* components/we-collapse-/we-collapse.wxml*/
+.wrapper {
+    color: #505050;
+    margin: 30rpx;
+    padding: 0;
+    max-height: 56vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justifycontent: space-around;
+    /* margin: 0 12rpx; */
+    height: 96rpx;
+    line-height: 96rpx;
+    border-radius: 12rpx;
+    padding: 0 6rpx;
+    font-size: 36rpx;
+}
+
+.title:hover {
+    /* background-color: #eee; */
+}
+
+.title-left {
+    flex: 1;
+    display: flex;
+}
+
+.icons {
+    margin-right: 12rpx;
+}
+
+.divider {
+    height: 3rpx;
+    margin: 2rpx 8rpx 0 8rpx;
+    background-color: #eee;
+}
+
+/* 具体打开内容 */
+.content-wrapper {
+    overflow: hidden;
+}
+
+.content-item {
+    display: flex;
+    flex-direction: row;
+    justifycontent: space-around;
+    height: 82rpx;
+    padding: 0 36rpx;
+    font-size: 26rpx;
+}
+
+.sub-title {
+    flex: 1;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    margin: 30rpx;
+}
+
+.confirm {
+    width: 66rpx;
+    height: 66rpx;
+}
+
+/* 打开动画 */
+.icon-right.true {
+    animation: open 0.5s forwards;
+    -webkit-animation: open 0.5s forwards;
+}
+
+.icon-right.false {
+    animation: close 0.5s forwards;
+    -webkit-animation: close 0.5s forwards;
+}
+
+@keyframes open
+{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(90deg);
+    }
+}
+ 
+@-webkit-keyframes open /* Safari 与 Chrome */
+{
+    from {
+        -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    }
+    to {
+        -webkit-transform:rotate(90deg); /* Safari and Chrome */
+    }
+}
+
+@keyframes close
+{
+    from {
+        transform:rotate(90deg);
+    }
+    to {
+        transform:rotate(0deg);
+    }
+}
+ 
+@-webkit-keyframes close /* Safari 与 Chrome */
+{
+    from {
+        -webkit-transform:rotate(90deg); /* Safari and Chrome */
+    }
+    to {
+        -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    }
+}

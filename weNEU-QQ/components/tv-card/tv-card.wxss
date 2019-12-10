@@ -1,0 +1,53 @@
+.channel-card-list {
+  padding: 10rpx;
+}
+
+.img {
+  width: 690rpx;
+  height: 376rpx; /* 16:9 最适合人眼的比例 */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.text {
+  padding-left: 10rpx;
+  font-size: 30rpx;
+  color: #757575;
+}
+
+.num-text {
+  font-size: 30rpx;
+  color: #757575;
+  position: absolute;
+  bottom: 0rpx;
+  right: 30rpx;
+}
+
+.bg-white {
+  background-color: #fff;
+  color: #666;
+}
+
+.shadow-md {
+  box-shadow: 0rpx 0rpx 30rpx 0rpx rgba(0, 0, 0, 0.07) !important;
+}
+
+.radius-lg {
+  border-radius: 20rpx;
+}
+
+.animation-slide-bottom {
+    animation-name: slide-bottom
+}
+
+.icon-group:before { content: "\e753"; }
+
+.icon-group_fill:before { content: "\e7f5"; }
+
+.margin {
+  margin: 30rpx;
+}
+
+.padding {
+  padding-top: 20rpx;
+}

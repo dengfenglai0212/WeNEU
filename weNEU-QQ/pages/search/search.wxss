@@ -1,0 +1,48 @@
+.container {
+  background-color: #f1f1f1;
+  flex: 0;
+}
+
+.container.home {
+  align-items: center;
+}
+
+.results {
+  width: 100%;
+  padding-top: 87rpx;
+}
+
+.result {
+  border-bottom: 3rpx solid #eee;
+  background: white;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.image-book {
+  width: 24%;
+  height: 6rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.info {
+  width: 76%;
+  align-content: space-between;
+  display: flex;
+  margin-left: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.row {
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.press {
+  font-size: 0.8rem;
+  color: #888;
+  justify-content: flex-end;
+}

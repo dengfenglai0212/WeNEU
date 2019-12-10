@@ -1,0 +1,76 @@
+<!--login.wxml-->
+<view style="z-index: 9999; height: 100%;">
+  <!--顶部标题栏-->
+  <!-- <top-bar hasBack="{{true}}" isTransparent="{{true}}"></top-bar> -->
+  <view class="margin padding radius-lg animation-slide-bottom">
+    <view>
+      <view style="padding-top: 150rpx;" class="wel-pic">
+        <image src="/images/login/UUIA_welcome.png" mode='aspectFit' style='width: 100%; max-height: 300rpx'></image>
+      </view>
+      <view class="bd">
+        <form class="login-form">
+          <view class='padding'>
+            <text class="icon-link text-white" style='font-size: 48rpx'> NEU 一网通账户绑定</text>
+          </view>
+          <view class="input-group radius-lg {{userid_focus ? 'active' : ''}}">
+            <text class="icon-people input-label text-white" style="font-size: 40rpx;"></text>
+            <input type="number" cursor-spacing="30" id="userid" placeholder="NEU 学号..." bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" style='color: #ffffff' value='{{studentID}}'/>
+          </view>
+          <view class="input-group radius-lg {{passwd_focus ? 'active' : ''}}">
+            <text class="icon-lock input-label text-white" style="font-size: 40rpx;"></text>
+            <input password="true" cursor-spacing="30" id="passwd" placeholder="一网通密码..." bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" style='color: #ffffff' value='{{password}}'/>
+          </view>
+          <view class="tourist-and-help">
+            <view class="text-lg tourist">
+              <text class="icon-friendfill text-white" style="margin-right: 8rpx;"></text>
+              <text class="text-white" bindtap="touristLogin">游客登录</text>
+            </view>
+            <view class="login-help text-lg" bindtap="showHelp">
+              <text class='icon-question text-white' > 帮助</text>
+            </view>
+          </view>
+          
+          <!-- <view class='comment'>
+          <text>本学期开始，学校对现有校园网络进行了全面升级，一个账号访问所有校内网站。为了给您带来更好的使用体验，我们将紧随学校步伐，通过一网通统一身份认证平台（pass.neu.edu.cn）为您提供服务。\n感谢您一直以来的支持，新学期加油！</text>
+        </view> -->
+        </form>
+
+        <view class="confirm-btn radius-lg text-xxl padding-sm margin" bindtap="bind">
+          <text class='icon-check'> 确认并继续</text>
+        </view>
+      </view>
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <text class="box-close icon-close text-xxl" bindtap="hideHelp"></text>
+          </view>
+          <view class="box-bd">
+            <text>自2019年春季学期起，学校上线了一网通统一身份认证平台（pass.neu.edu.cn），从此一个账号畅游东大！在东大 选择紧跟学校趋势利用一网通统一身份认证平台为大家提供服务。</text>
+            <view class="help-q">1.账号和密码是什么？</view>
+            <view class="help-a">
+              <text>账号：学号（一网通登录账号）</text>
+              <text>密码：初始密码（身份证号后六位）或修改后的密码（为了您的信息安全，我们强烈建议您修改初始密码）</text>
+            </view>
+            <view class="help-q">2.登录失败？</view>
+            <view class="help-a">
+              <text>若登录失败请您先到一网通网站尝试能否登录，确认密码无误后再试。（未登录过一网通网站的同学需要先到该网站登录一次激活账号）</text>
+              <text>另外，若连续登录失败五次，账号会被锁定1分钟。</text>
+            </view>
+            <view class="help-q">3.忘记密码？</view>
+            <view class="help-a">
+              <text>请到一网通网站选择忘记密码利用注册邮箱重置密码。</text>
+            </view>
+            <view class="help-q">4.我的信息安全吗？</view>
+            <view class="help-a">
+              <text>在东大 不收集任何用户信息，包括您的学号、密码和查询结果等；</text>
+              <text>您输入的登录凭据均使用您设备上的本地存储；</text>
+              <text>您与 在东大 服务器之间的通信全部基于https协议；</text>
+              <text>在东大 将尽我等所能保障您的信息安全。</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

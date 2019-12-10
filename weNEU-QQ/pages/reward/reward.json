@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "开发者们",
+  "usingComponents": {
+    "demo-block": "../../dist_vant/demo-block/index"
+  }
+}

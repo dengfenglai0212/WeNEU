@@ -1,0 +1,107 @@
+<!--pages/index/index.wxml-->
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{false}}"></top-bar> -->
+<!--顶部公告栏-->
+<view wx:if="{{ifNotify}}">
+  <van-notice-bar mode="closeable" text="{{notify_data}}" />
+</view>
+<view style='padding-top: 30rpx'>
+  <!--天气卡片组件-->
+  <view style="height: 20px"></view>
+  <weather-card></weather-card>
+  <view wx:if="{{isLoggedIn}}">
+    <!--课表卡片-->
+    <view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.4s;">
+      <!--课表-->
+      <view class="main-card-item">
+        <view class='text-lg'>
+          <text class='icon-calendar'> 今日课表</text>
+          <view class='calendar-right'>
+            <text decode="{{true}}">第 {{week}} 周&emsp;星期{{weekday == 1 ? '一' : weekday == 2 ? '二' : weekday == 3 ? '三' : weekday == 4 ? '四' : weekday == 5 ? '五' : weekday == 6 ? '六' : weekday == 7 ? '天' : ''}}</text>
+          </view>
+        </view>
+        <navigator url="/pages/table/table" class='radius'>
+          <view wx:if="{{course_state==0}}">
+            <!--加载中...-->
+            <view class='loading'>
+              <van-loading />
+            </view>
+          </view>
+          <view wx:if="{{course_state!=0}}">
+            <view wx:if="{{index==0}}">
+              <empty-state title="今日无课" description="合理安排一下吧" icon="magic"></empty-state>
+            </view>
+            <view wx:else>
+              <block wx:for="{{todayCourse}}" wx:key="key" wx:for-index="index">
+                <view class="card-item-bd" wx:if="{{item[0]!=null && item[1]!=null&&item[2]!=null}}">
+                  <view class="kb-item">
+                    <view class="kb-item-left">
+                      <text class="kb-item-what">{{item[0]}}</text>
+                      <text class="kb-item-when">{{(index+1)*2-1}}-{{(index+1)*2}}节</text>
+                    </view>
+                    <text class="kb-item-where">{{item[2]}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 一卡通 -->
+    <view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.5s;">
+      <view class="main-card-item">
+        <view class='text-lg'>
+          <text class='icon-pay'> 校园钱包</text>
+        </view>
+        <navigator url="/pages/card/card" class="margin-top radius">
+          <view class='text-center padding'>
+            <view class='margin'>
+              <view class='margin-bottom'>
+                <text class="text-lg">￥</text>
+                <br/>
+                <text class="text-xsl">{{balance}}</text>
+              </view>
+              <br/>
+              <text class='icon-card'> 校园卡主钱包余额</text>
+            </view>
+            <view class='margin'>
+              <view class="text-gray">
+                <text class='text-lg icon-wifi'> 校园网余额</text>
+                <text class="text-xl text-blue"> ￥{{status}}</text>
+              </view>
+              <view class="text-gray">
+                <text class='text-lg icon-rank'> 已用流量</text>
+                <text class="text-xl text-blue"> {{networkInfo.sum_bytes}} MB</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!--临时查成绩-->
+    <!-- <view class="bg-white margin shadow-md padding radius-lg">
+      <view class="main-card-item">
+        <view class='text-lg'>
+          <text class='icon-selection'> 学业成绩</text>
+        </view>
+        <navigator url="/pages/grade/grade" class="radius">
+          <empty-state title="戳我去冒险" icon="focus"></empty-state>
+        </navigator>
+      </view>
+    </view> -->
+
+    <!-- 图书馆借阅 -->
+    <!-- <library-borrow-record-card show-details="{{false}}"></library-borrow-record-card> -->
+  </view>
+  <view wx:else>
+    <view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+      <navigator url="/pages/login_eone/login_eone">
+        <empty-state title="请绑定账户后继续" description="点击此处绑定" icon="link">
+        </empty-state>
+      </navigator>
+    </view>
+  </view>
+</view>

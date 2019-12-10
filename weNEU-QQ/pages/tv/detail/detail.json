@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "电视墙(请先连接NEU)",
+  "usingComponents": {
+    "demo-block": "../../../dist_vant/demo-block/index",
+    "van-tab": "../../../dist_vant/tab/index",
+    "van-tabs": "../../../dist_vant/tabs/index",
+    "van-cell": "../../../dist_vant/cell/index",
+    "van-cell-group": "../../../dist_vant/cell-group/index",
+    "van-button": "../../../dist_vant/button/index",
+    "van-tag": "../../../dist_vant/tag/index"
+  }
+}

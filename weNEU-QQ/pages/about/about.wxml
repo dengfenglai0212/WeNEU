@@ -1,0 +1,262 @@
+<!--about.wxml-->
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom">
+  <view class="header">
+    <image class="logo" src="http://qiniu.weneu.xyz/%E5%9C%A8%E4%B8%9C%E5%A4%A71-01.png" mode="aspectFit"></image>
+  </view>
+  <view class="content">
+    <view class="version">
+      <view class="version-title">
+        <text class="title-name">在东大</text>
+        <text class="version-text">{{version}}</text>
+        <text class="version-text">公测</text>
+      </view>
+      <view bindtap="toggleLog">
+        <text class="version-log-link " wx:if="{{!showLog}}">更新日志</text>
+        <text class="version-log-link" wx:else>简介</text>
+      </view>
+    </view>
+    <view class="describe" wx:if="{{!showLog}}">
+      <text class="desc-title">简介</text>
+      <view class="desc-list">
+        <!-- <text class="desc-list-item" bindtap='copyText' data-text="http://weneu.xyz">在东大 官网: <text class='link-text'>http://weneu.xyz</text></text>
+
+        <text class="desc-list-item" bindtap='copyText' data-text="https://github.com/weNEU">Github开源仓库: <text class='link-text'>https://github.com/weNEU</text></text> -->
+
+        <text class="desc-list-item" bindtap='copyText' data-text="721423324">在东大 用户交流QQ群: <text class='link-text'>721423324</text></text>
+
+        <text class="desc-list-item" bindtap='copyText' data-text="Leisurely98">合作QQ/加入我们: <text class='link-text'>1269673839</text></text>
+      </view>
+      <text class="desc-content">在东大 是一款小程序，它致力于帮助我们东北大学的学生更方便的查询教务、图书馆、一卡通等信息以及浏览校内新闻、社团、通知等资讯信息，并提供其他如电视墙，失物招领等更多新鲜功能。</text>
+      <text class="desc-content">在东大 由东北大学软件学院16级软英专业的几名同学发起并完成最早版本的开发，我们的小程序创造性地提出了“校园信息聚合平台”这一全新概念。我们希望将学校繁琐冗杂的各个系统整合在一起，做一个简单快捷的应用，并且移动端友好，大部分操作我们完全不用打开电脑，通过小程序这样一个便捷的方式满足我们的需求。</text>
+      <text class="desc-content">在东大 是本科生/研究生全覆盖的生活学习助手</text>
+      <text class="desc-content">在东大 是传统校园网络移植到移动端的解决方案</text>
+      <text class="desc-content">在东大 是一个开放的不断开发新鲜功能的永远年轻的小程序</text>
+      <!-- <text class="desc-content">拥有weNEU，您将便捷地查询教务处信息。在这里，课表、成绩、考试日程、自习室信息、蹭课信息一应俱全。</text>
+      <text class="desc-content">拥有weNEU，您将便捷地查询图书馆信息。在这里，快捷地搜索馆藏图书、获取馆藏信息、图书架位，告别传统查询方式。在这里，当前借阅、历史借阅，您再也不会错过任何信息。</text>
+      <text class="desc-content">拥有weNEU，您将便捷地查询一卡通信息。在这里，一卡通及时余额、小钱包余额、今日消费记录、历史消费记录、阶段交易汇总，再也不会有余额不足的尴尬。</text>
+      <text class="desc-content">拥有weNEU，您将便捷地了解校园的大事小情。在这里，我们聚合了东大新闻网、教务处、创新网、各学院官网等，小程序在手，校园大事小情我有。</text> -->
+      <text class="desc-content">在东大 还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</text>
+
+      <text class="desc-title">致谢</text>
+      <view class="desc-list">
+        <text class="desc-list-item">Github 开源项目 UUIA 开发组</text>
+        <text class="desc-list-item">在武大，We重邮，We川大等高校小程序</text>
+        <text class="desc-list-item">东北大学软件学院团委</text>
+        <text class="desc-list-item">东北大学学生会</text>
+        <text class="desc-list-item">沈阳葫芦科技有限公司</text>
+        <text class="desc-list-item">所有帮助我们测试推广的同学们，谢谢你们！</text>
+      </view>
+
+      <text class="desc-title">关联 在东大</text>
+      <view bindtap='copyText' data-text="wx195fc0b2361503df">
+        <text class="desc-content">若您或您的朋友在运营与东北大学相关的公众号(学生组织/社团/校园自媒体等)，「在东大」诚挚地欢迎您的公众号关联我们的小程序，并期待与您合作！</text>
+      </view>
+    </view>
+
+    <view class="log-list" wx:else>
+
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.0.8</text>
+          <text class="desc-time">2019/12/10</text>
+        </view>
+        <text class="desc-content">新的起点</text>
+        <view class="desc-list">
+          <text class="desc-list-item">更名为 在东大</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.0.7</text>
+          <text class="desc-time">2019/11/25</text>
+        </view>
+        <text class="desc-content">WeNEU</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增题库功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.0.0</text>
+          <text class="desc-time">2019/11/10</text>
+        </view>
+        <text class="desc-content">WeNEU</text>
+        <view class="desc-list">
+          <text class="desc-list-item">qq小程序推出</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v3.1</text>
+          <text class="desc-time">2019/05/25</text>
+        </view>
+        <text class="desc-content">数学狂人</text>
+        <view class="desc-list">
+          <text class="desc-list-item">增加机考预约功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v3.0</text>
+          <text class="desc-time">2019/05/03</text>
+        </view>
+        <text class="desc-content">"All new design."</text>
+        <view class="desc-list">
+          <text class="desc-list-item">交互界面全部重新设计，采用全新的设计风格。</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.5</text>
+          <text class="desc-time">2019/03/12</text>
+        </view>
+        <text class="desc-content">听听我的声音</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增「新鲜事」板块</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.4</text>
+          <text class="desc-time">2019/03/06</text>
+        </view>
+        <text class="desc-content">hello，一网通</text>
+        <view class="desc-list">
+          <text class="desc-list-item">小程序整体迁移至一网通账号体系下</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.3</text>
+          <text class="desc-time">2019/01/19</text>
+        </view>
+        <text class="desc-content">东大人的GPA计算器</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增留学GPA计算器</text>
+          <text class="desc-list-item">为各个页面增加分享功能</text>
+          <text class="desc-list-item">修复一卡通界面没有流水记录没有提示的bug</text>
+          <text class="desc-list-item">增加打开小程序时的版本更新提示</text>
+          <text class="desc-list-item">修复首页功能栏swiper浮点位置不固定的bug</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.2</text>
+          <text class="desc-time">2018/12/30</text>
+        </view>
+        <text class="desc-content">看看东大人都在做什么</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增校情大数据功能</text>
+          <text class="desc-list-item">优化成绩页面，增加「添加至我的小程序」的提示，增加使用提示</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.1</text>
+          <text class="desc-time">2018/12/20</text>
+        </view>
+        <view class="desc-list">
+          <text class="desc-list-item">优化电视墙，增加更多频道，实时显示同时在线观看人数，支持历史回放</text>
+          <text class="desc-list-item">新增天气卡片，显示沈阳市区实时气温和五日天气预报</text>
+          <text class="desc-list-item">吾校页面增加校歌在线播放</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v2.0</text>
+          <text class="desc-time">2018/11/27</text>
+        </view>
+        <text class="desc-content">焕然一新</text>
+        <view class="desc-list">
+          <text class="desc-list-item">聚合图书馆页面</text>
+          <text class="desc-list-item">主题变浅且恢复白底蓝标题风格</text>
+          <text class="desc-list-item">优化了成绩、考试日程、一卡通页面</text>
+          <text class="desc-list-item">优化校历页面，裁剪了校历图片</text>
+          <text class="desc-list-item">删除帮助页面</text>
+          <text class="desc-list-item">新增IP网关</text>
+          <text class="desc-list-item">新增图书馆架位、光影播放室查询</text>
+          <text class="desc-list-item">更改主页滚动海报详情展示方式，关联在东大lite公众号并跳转至公众号文章内，获得更好的体验</text>
+          <text class="desc-list-item">优化了寻课功能，增加结果分类显示，点击详情显示</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.5</text>
+          <text class="desc-time">2018/11/12</text>
+        </view>
+        <view class="desc-list">
+          <text class="desc-list-item">UI更新，主色调选为深蓝色，与东大校色一致</text>
+          <text class="desc-list-item">优化课表页面（新配色课程格子，周课表今日指针）</text>
+          <text class="desc-list-item">尝试加入AI模块</text>
+          <text class="desc-list-item"></text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.4</text>
+          <text class="desc-time">2018/11/10</text>
+        </view>
+        <text class="desc-content">今日妳最大</text>
+        <view class="desc-list">
+          <text class="desc-list-item">与东大学生会联合举办东大女生节活动，增加线上心愿墙</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.3</text>
+          <text class="desc-time">2018/09/20</text>
+        </view>
+        <view class="desc-list">
+          <text class="desc-list-item">更换logo</text>
+          <text class="desc-list-item">新增国庆tips界面</text>
+          <text class="desc-list-item">性能优化</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.2</text>
+          <text class="desc-time">2018/09/01</text>
+        </view>
+        <text class="desc-content">欢迎新同学</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增帮助、导览</text>
+          <text class="desc-list-item">面向新生的第一次线上推广</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.1</text>
+          <text class="desc-time">2018/08/30</text>
+        </view>
+        <view class="desc-list">
+          <text class="desc-list-item">收集上线后的用户反馈</text>
+          <text class="desc-list-item">更新主页的功能图标</text>
+          <text class="desc-list-item">新增通讯录功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">v1.0</text>
+          <text class="desc-time">2018/08/27</text>
+        </view>
+        <text class="desc-content">你好，我是 在东大</text>
+        <view class="desc-list">
+          <text class="desc-list-item">首个公测版本</text>
+          <text class="desc-list-item">新增一卡通查询功能</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="footer-lanshan">
+      <image src="/images/me/about/neusc.png"></image>
+      <text>东北大学 软件学院 软英1601-1602</text>
+    </view>
+    <text>在东大 校园生活 · www.weneu.xyz</text>
+    <text>Copyright ©️ {{year}} All rights reserved.</text>
+  </view>
+</view>

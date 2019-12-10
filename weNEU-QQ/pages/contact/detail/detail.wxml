@@ -1,0 +1,25 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<view>
+  <card-title text="{{placename}}" sub-text="联系方式"></card-title>
+  <view wx:for="{{data}}" class="bg-white margin shadow-md radius-lg animation-slide-bottom padding item-box" wx:key="key">
+    <view class="item-left">
+      <view class="item_font">部门</view>
+      <view class="item_font">联系方式</view>
+    </view>
+    <view class="item-right">
+      <view class="item_info">{{item.department}}</view>
+      <view id="{{index}}" class="item_info" bindtap='bind'>{{item.tele}}　☎
+      </view>
+    </view>
+  </view>
+</view>
+
+<card-title text="提示" sub-text="Note"></card-title>
+<view class="last-info">
+  weNEU 从学校各部门官网搜集到了这些联系方式。不过很抱歉，我们并不能 100% 保证这些信息全部有效。
+</view>
+<view class="last-info">
+  点击电话号码即可直接拨号。
+</view>

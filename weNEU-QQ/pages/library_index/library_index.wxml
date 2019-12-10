@@ -1,0 +1,23 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<card-title text="图书馆" sub-text="Library"></card-title>
+<!--pages/library_index/library_index.wxml-->
+<view>
+  <view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom text-center">
+    <navigator url="../library/library">
+      <image src='https://ws3.sinaimg.cn/large/006tNbRwly1fylntivyhqj30zs0boq7e.jpg' mode="widthFix" class='card-image'></image>
+    </navigator>
+
+    <navigator url="../borrow/borrow">
+      <image src='https://ws2.sinaimg.cn/large/006tNbRwly1fylnt3ktscj30zs0boq7a.jpg' mode="widthFix" class='card-image'></image>
+    </navigator>
+
+    <navigator url="./location/location">
+      <image src='https://ws3.sinaimg.cn/large/006tNbRwly1fylnsly9k4j30zs0boae3.jpg' mode="widthFix" class='card-image'></image>
+    </navigator>
+
+    <!-- <navigator url="../community/someone/someone?user_img=https://ws3.sinaimg.cn/large/006tKfTcly1g115jdk1xoj30ho0hogn1.jpg&user_name=东北大学图书馆&user_type=1&user_number=1002">
+      <image src='https://ws3.sinaimg.cn/large/006tNbRwly1fylnqh3cr6j30zs0bo427.jpg' mode="widthFix" class='card-image'></image>
+    </navigator> -->
+  </view>
+</view>

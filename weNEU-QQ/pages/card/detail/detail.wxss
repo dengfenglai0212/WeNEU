@@ -1,0 +1,99 @@
+page {
+  line-height: 150%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f1f1f1;
+  margin-top: 20rpx;
+}
+
+.title {
+  margin-bottom: 10rpx;
+  margin-left: 30rpx;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.ykt-detail {
+  display: flex;
+  flex-direction: row;
+  height: 150rpx;
+  margin: 15rpx 30rpx 45rpx;
+  background: #78bbe6;
+  border-radius: 15rpx;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+
+.ykt-detail-name {
+  font-size: 11pt;
+  padding-left: 30rpx;
+  color: white;
+}
+
+.ykt-detail-money {
+  font-size: 30rpx;
+  color: white;
+}
+
+.ykt-detail-value {
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+  padding-right: 25rpx;
+}
+
+.ykt-ye-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50rpx;
+  color: #777;
+}
+
+.ykt-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-button{
+  display: flex;
+  align-items: center;
+  margin-right: 50rpx;
+}
+
+#mychart-dom-pie{
+  width: 90%;
+  height: 90%;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+} 
+
+.ec-canvas{
+  width: 90%;
+  height: 90%;
+}
+.result{
+  background-color: white;
+  width: 750rpx;
+  height: 750rpx;
+  /* margin-left: 30rpx;
+  margin-right: 30rpx; */
+  border-radius: 15rpx;
+}

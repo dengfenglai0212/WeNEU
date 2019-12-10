@@ -1,0 +1,29 @@
+/* pages/map/detail/detail.wxss */
+.myPage {
+  margin: 50rpx 0 80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.mid-info{
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 80rpx;
+  margin-bottom: 50rpx;
+}
+
+.mid-tip{
+  font-size: 30rpx;
+  margin-bottom: 5rpx;
+}
+
+.mid-time{
+  font-size: 27rpx;
+}

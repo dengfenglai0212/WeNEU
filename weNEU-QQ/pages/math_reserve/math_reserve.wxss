@@ -1,0 +1,92 @@
+/* pages/math_reserve/math_reserve.wxss */
+page {
+  height: 100%;
+}
+
+.main-view {
+  height: 100%;
+  width: 100%;
+}
+
+
+.login-view {
+  position: relative;
+  top: 300rpx;
+  background-color:  #f1f1f1;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.inside {
+  margin: auto;
+  width: 80%;
+}
+
+.password-view {
+  height: 80rpx;
+  background-color: white;
+  border-radius: 8px;
+  margin: 30rpx 0;
+  display: flex;
+  direction: row;
+  align-items: center;
+  padding: 0 5px;
+}
+
+
+
+.reserve-view {
+  z-index: 1;
+  position:static;
+  height: 100%;
+}
+
+.picker {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  margin: 6rpx 0;
+}
+
+.paper_info {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  margin: 10rpx 5rpx;
+}
+
+.select_res {
+  color: black;
+}
+
+.submit_but_view .cancel-button-view {
+  margin: 25rpx 15rpx 0;
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 4rpx;
+ margin: 20rpx;
+}
+
+.mypaper_container {
+  width: 100%;
+  height:  100%;
+}
+
+.text-view {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  margin: 5rpx 0;
+}
+
+.display-switch-view {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

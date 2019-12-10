@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "课程表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-search": "../../../vant_weapp/components/dist/search/index",
+    "van-panel": "../../../vant_weapp/components/dist/panel/index",
+    "van-row": "../.../../vant_weapp/components/dist/row/index",
+    "van-col": "../../../vant_weapp/components/dist/col/index",
+    "van-toast": "../../../vant_weapp/components/dist/toast/index",
+    "van-icon": "../../../vant_weapp/components/dist/icon/index",
+    "van-popup": "../../vant_weapp/components/dist/popup/index",
+    "van-button": "../../../vant_weapp/components/dist/button/index",
+    "van-field": "../../../vant_weapp/components/dist/field/index",
+    "van-checkbox": "../../../vant_weapp/components/dist/checkbox/index",
+    "van-picker": "../../../vant_weapp/components/dist/picker/index"
+  }
+}

@@ -1,0 +1,43 @@
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+
+<!-- <card-title text="IP 网关账号" sub-text="IPGW Acc."></card-title>
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.1s;">
+  <van-cell-group>
+    <van-cell title="当前状态" value="{{status}}" />
+    <van-field value="{{username}}" required clearable label="学号" placeholder="请输入学号" bind:input="useridInput" id="usernameid" />
+    <van-field value="{{password}}" type="password" label="密码" placeholder="请输入IP网关登录密码" required clearable bind:input="passwdInput" id="passwordid" />
+  </van-cell-group>
+</view> -->
+
+<card-title text="可选操作" sub-text="Operations"></card-title>
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.2s;">
+  <view class="text-center">
+    <button class='bg-blue text-lg radius margin' bindtap="loginIn">登录校园网</button>
+    <button class='bg-blue text-lg radius margin' bindtap="loginOut">断开网络</button>
+    <button class='bg-blue text-lg radius margin' bindtap='upload'>刷新状态</button>
+  </view>
+</view>
+
+<card-title text="账户信息" sub-text="Network Acc. Info."></card-title>
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.3s;">
+  <van-cell-group>
+    <van-field value="{{ use }}" label="已用流量" placeholder="" disabled bind:click-icon="onClickIcon" />
+    <van-field value="{{ money }}" label="账户余额" placeholder="" disabled border="{{ false }}" />
+    <van-field value="{{usedtime}}" label="使用时长" placeholder="" disabled border="{{false}}" />
+    <van-field value="{{addressip}}" label="IP地址" placeholder="" disabled border="{{ false }}" />
+  </van-cell-group>
+</view>
+
+<!-- <demo-block title="WiFi直连(暂不支持全部机型，若无效请使用上方登录按钮)">
+  <view class="ipgw-button-direct">
+    <van-cell-group>
+      <van-button round type="primary" bindtap="connect_wifi">一键连接</van-button>
+    </van-cell-group>
+  </view>
+</demo-block> -->
+<card-title text="提示" sub-text="Note"></card-title>
+<view class="last-info">
+  <text>使用前请先开启手机Wi-Fi并连接NEU\n连接失败有可能是欠费了哦😄</text>
+  <text>\n很抱歉地。因为学校IP网关ipgw.neu.edu.cn的安全证书不完整，会导致部分安卓用户无法正常使用IP网关功能，我们会尽快联系网关负责老师解决这一问题。IOS用户可以正常使用。</text>
+</view>

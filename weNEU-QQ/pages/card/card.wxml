@@ -1,0 +1,130 @@
+<!--pages/card/card.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{true}}"></top-bar>-->
+<view  class="container">
+  <!-- <card-title text="一卡通" sub-text="Campus Card"></card-title>
+  <view class="bg-blue margin shadow-md padding radius-lg">
+    <view class="ykt-black-line">
+      <image src="/images/index/card/card-bg-neu.png" class="card-bg-neu" mode="widthFix"></image>
+    </view>
+    <view class="ykt-content padding-bottom">
+      <view class="ykt-ye padding">
+        <view class="ykt-ye-money">
+          余额 ￥
+          <text class="ykt-ye-value"> {{balance}} </text>
+        </view>
+      </view>
+      <view class="ykt-img text-xsl padding-bottom">
+        <text class="icon-card"></text>
+      </view>
+    </view>
+  </view> -->
+
+  <view wx:if="{{!isLoggedIn}}">
+    <view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding">
+      <navigator url="/pages/login_eone/login_eone">
+        <empty-state title="请绑定账户后继续" description="点击此处绑定" icon="link">
+        </empty-state>
+      </navigator>
+    </view>
+  </view>
+  <view class="animation-scale-down" wx:else>
+    <card-title text="本月消费" sub-text="Campus Card"></card-title>
+    <view class="bg-white margin shadow-md padding radius-lg record-content">
+      <canvas style="width: {{circle_len + 'px'}}; height: {{circle_len + 'px'}};" canvas-id="firstCanvas"></canvas>
+      <view class="data-detail">
+        <view class="trade-name" wx:for="{{trades}}" wx:key="item.index">
+          <view style="background:{{item.color}};height:{{square}};width:{{square}};margin:3px" ></view>
+          <view class="cost-name">
+            <text>{{item.description}}-</text>
+          </view>
+          <view class="cost-sum">
+            <text>￥{{item.cost}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="bg-white margin shadow-md padding radius-lg ykt-detail">
+        <view class="ykt-content">
+          <view class="ykt-ye-2">
+            <text class="ykt-detail-name">主钱包</text>
+            <view class="ykt-detail-money">
+              <text class="ykt-detail-value">￥{{balance}}</text>
+            </view>
+          </view>
+          <view class="ykt-ye-2">
+            <text class="ykt-detail-name">补助余额</text>
+            <view class="ykt-detail-money">
+              <text class="ykt-detail-value">￥{{subsidy}}</text>
+            </view>
+          </view>
+          <!-- <view class="ykt-ye-2">
+            <text class="ykt-detail-name">交易汇总</text>
+
+            <view class="ykt-detail-money" bindtap="seeDetail1">
+              <text class="ykt-detail-value">即将开放</text>
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <view>
+      <!-- <card-title text="校园网" sub-text="Campus Network"></card-title>
+      <view class="bg-white margin shadow-md padding radius-lg ykt-detail">
+        <view class="ykt-content">
+          <view class="ykt-ye-2">
+            <text class="ykt-detail-name">余额</text>
+            <view class="ykt-detail-money">
+              <text class="ykt-detail-value">{{net_balance}}元</text>
+            </view>
+          </view>
+          <view class="ykt-ye-2">
+            <text class="ykt-detail-name">使用时长</text>
+            <view class="ykt-detail-money">
+              <text class="ykt-detail-value">{{net_time}}h</text>
+            </view>
+          </view>
+          <view class="ykt-ye-2">
+            <text class="ykt-detail-name">已用流量</text>
+            <view class="ykt-detail-money">
+              <text class="ykt-detail-value">{{net_bytes}}M</text>
+            </view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+    <view>
+      <!-- <card-title text="近日消费记录" sub-text="Payment List"></card-title> -->
+      <!-- 交易数据 -->
+      <view wx:if="{{loading == true}}">
+        <view wx:if="{{record.length==0}}">
+          <view class="bg-white margin shadow-md radius-lg animation-slide-bottom padding" wx:if="{{res.messages.length == 0}}">
+            <empty-state title="无近期消费记录" description="近期没有用校卡花钱哦" icon="card"></empty-state>
+          </view>
+        </view>
+        <view wx:else class="trans table shadow-md">
+          <view class="tr thead">
+            <view>时间</view>
+            <view>地点</view>
+            <view>消费</view>
+            <view>余额</view>
+          </view>
+          <view wx:for="{{record}}" class="tr thead" wx:key="item.index">
+            <view>{{item.time}}</view>
+            <view>{{item.terminal}}</view>
+            <view>{{item.cost}}</view>
+            <view>{{item.balance}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="loading" wx:else>
+        <view class="loading-gif">
+          <van-loading />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

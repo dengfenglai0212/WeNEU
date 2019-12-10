@@ -1,0 +1,184 @@
+<!--pages/functionality/functionality.wxml-->
+<!--顶部标题栏-->
+<!--<top-bar hasBack="{{false}}"></top-bar>-->
+
+<banner-swipper></banner-swipper>
+
+<view class="animation-slide-bottom" style="animation-delay: 0.2s;">
+  <card-title text="学习在东大" sub-text="Study" icon="self-def-arrow" pic-src="../../images/function/arrow.png"></card-title>
+  <view class="bg-white margin shadow-md radius-lg padding-sm">
+    <!-- 功能栏 -->
+    <!-- 教务处功能区 -->
+    <view class="index-function-card">
+      <view class="grid col-5 text-center">
+        <block wx:if="{{isLoggedIn}}">
+          <navigator url="../table/table" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-calendar"></text>
+            </view>
+            <view class="functionality-grid-label">课表</view>
+          </navigator>
+          <navigator url="../grade/grade" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-selection"></text>
+            </view>
+            <view class="functionality-grid-label">成绩</view>
+          </navigator>
+          <navigator url="../exam/exam" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-edit"></text>
+            </view>
+            <view class="functionality-grid-label">考试日程</view>
+          </navigator>
+          <navigator url="../library_index/library_index" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-read"></text>
+            </view>
+            <view class="functionality-grid-label">图书馆</view>
+          </navigator>
+          <navigator url="../question_bank/question_bank" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-write"></text>
+            </view>
+            <view class="functionality-grid-label">题库</view>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-calendar"></text>
+            </view>
+            <view class="functionality-grid-label">课表</view>
+          </navigator>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-selection"></text>
+            </view>
+            <view class="functionality-grid-label">成绩</view>
+          </navigator>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-edit"></text>
+            </view>
+            <view class="functionality-grid-label">考试日程</view>
+          </navigator>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-read"></text>
+            </view>
+            <view class="functionality-grid-label">图书馆</view>
+          </navigator> 
+          <navigator url="../question_bank/question_bank" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-write"></text>
+            </view>
+            <view class="functionality-grid-label">题库</view>
+          </navigator> 
+        </block>
+      </view>
+    </view>
+  </view>
+  <card-title text="生活在东大" sub-text="Life" icon="self-def-arrow" pic-src="../../images/function/arrow.png"></card-title>
+  <view class="bg-white margin shadow-md radius-lg padding-sm">
+    <!-- 功能栏 -->
+    <view class="index-function-card">
+      <view class="grid col-5 text-center">
+        <!--图书馆功能区-->
+        <!-- <block wx:if="{{isLoggedIn==1}}">
+          <navigator url="../library_index/library_index" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-read"></text>
+            </view>
+            <view class="functionality-grid-label">图书馆</view>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-read"></text>
+            </view>
+            <view class="functionality-grid-label">图书馆</view>
+          </navigator>
+        </block> -->
+        <!-- 一卡通功能区 -->
+        <block wx:if="{{isLoggedIn==1}}">
+          <navigator url="../card/card" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-vipcard"></text>
+            </view>
+            <view class="functionality-grid-label">一卡通</view>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator url="../login_eone/login_eone" class="radius padding-sm" hover-class="weui-grid_active">
+            <view class="functionality-grid-icon">
+              <text class="icon-vipcard"></text>
+            </view>
+            <view class="functionality-grid-label">一卡通</view>
+          </navigator>
+        </block>
+
+        <!-- 校园网功能区 -->
+        <!-- <navigator url="../ipgw/ipgw" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+              <text class="icon-wifi"></text>
+            </view>
+          <view class="functionality-grid-label">IP 网关</view>
+        </navigator> -->
+        <navigator url="../tv/tv" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-video"></text>
+          </view>
+          <view class="functionality-grid-label">电视墙</view>
+        </navigator>
+        <!-- 其他功能区 -->
+        <navigator url="../bus/bus" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-taxi"></text>
+          </view>
+          <view class="functionality-grid-label">校车</view>
+        </navigator>
+        <navigator url="../calendar/calendar" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-time"></text>
+          </view>
+          <view class="functionality-grid-label">校历</view>
+        </navigator>
+        <navigator url="../contact/contact" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-phone"></text>
+          </view>
+          <view class="functionality-grid-label">通讯录</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <card-title text="精彩在东大" sub-text="Leisure" icon="self-def-arrow" pic-src="../../images/function/arrow.png"></card-title>
+  <view class="bg-white margin shadow-md radius-lg padding-sm">
+    <!-- 功能栏 -->
+    <view class="index-function-card">
+      <view class="grid col-5 text-center">
+        <!-- <navigator url="../bigdata/bigdata" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+              <text class="icon-creative"></text>
+            </view>
+          <view class="functionality-grid-label">大数据</view>
+        </navigator> -->
+        <navigator url="../map/map" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-like"></text>
+          </view>
+          <view class="functionality-grid-label">爱心雨伞</view>
+        </navigator>
+        <navigator url="../guide/guide" class="radius padding-sm" hover-class="weui-grid_active">
+          <view class="functionality-grid-icon">
+            <text class="icon-activity"></text>
+          </view>
+          <view class="functionality-grid-label">吾校</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-toast id="van-toast" duration="2000" />

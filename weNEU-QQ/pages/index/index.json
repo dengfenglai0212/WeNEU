@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+      "van-action-sheet": "../../dist_vant/action-sheet/index",
+      "van-notice-bar": "../../dist_vant/notice-bar/index"
+    }
+}

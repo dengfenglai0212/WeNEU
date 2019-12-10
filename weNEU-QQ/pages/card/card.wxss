@@ -1,0 +1,209 @@
+/* pages/ykt/ykt.wxss */
+
+page {
+  /* font-size: 10pt; */
+  line-height: 150%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f1f1f1;
+  margin-top: 20rpx;
+}
+
+/* 本月消费 */
+.record-content {
+  margin-top: 10rpx;
+}
+
+.trade-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cost-sum {
+  position: absolute;
+  right: 60rpx; /*padding30 +margin30*/
+}
+
+/* 余额 */
+.ykt-black-line {
+  width: 100%;
+  height: 80rpx;
+  margin: 40rpx 20rpx 0;
+  /* background: #7b7b7b; */
+}
+.card-bg-neu{
+  width: 300rpx;
+}
+
+.ykt-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ykt-ye {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50rpx;
+  color: #777;
+}
+
+.ykt-ye-name {
+  /* font-size: 11pt; */
+  line-height: 50rpx;
+  padding-left: 30rpx;
+  color: white;
+}
+
+.ykt-ye-money {
+  text-align: center;
+  font-size: 10pt;
+  color: white;
+}
+
+.ykt-ye-value {
+  /* font-size: 36pt; */
+  line-height: 80rpx;
+  padding-right: 25rpx;
+}
+
+.ykt-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+}
+
+.ykt-img image {
+  width: 125rpx;
+  height: 125rpx;
+  padding: 20rpx 30rpx;
+}
+
+/* 详细信息 */
+.table {
+  border-radius: 24rpx; 
+  background: #fff;
+  padding: 6rpx;
+}
+
+
+.ykt-detail {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+}
+
+.ykt-detail-name {
+  /* font-size: 11pt; */
+  padding-left: 30rpx;
+  color: black;
+}
+
+.ykt-detail-money {
+  font-size: 30rpx;
+  color: black;
+}
+
+.ykt-detail-value {
+  margin-left: 30rpx;
+  font-size: 33rpx;
+  line-height: 80rpx;
+}
+
+.ykt-ye-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50rpx;
+  color: #777;
+}
+
+.ykt-content {
+  margin-top: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 流水 */
+.radius-xl {
+  border-radius: 20px;
+}
+
+.title {
+  margin-bottom: 10rpx;
+  margin-left: 30rpx;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.trans {
+  border-radius: 0.5rem;
+  box-shadow: 2rpx 2rpx 20rpx #ccc;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+
+.trans .thead.tr {
+  color: black;
+  border-bottom: none;
+}
+
+.day{
+  border-bottom: 5rpx solid #505050;
+}
+
+.trans .tr {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2rpx dashed #ddd;
+  color: #666;
+  padding: 0.3rem;
+}
+
+.trans .tr:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.trans .tr view {
+  flex: 1;
+}
+
+.trans .tr view:nth-child(1) {
+  flex: 2;
+}
+
+.trans .tr view:nth-child(2) {
+  flex: 2;
+}
+
+.data-detail {
+  margin: 20px 0 0  27px;
+}
+
+.record-content {
+  display:flex;
+  flex-direction: row;
+}

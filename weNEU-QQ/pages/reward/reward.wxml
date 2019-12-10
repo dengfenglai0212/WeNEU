@@ -1,0 +1,17 @@
+<!--顶部标题栏-->
+<!-- <top-bar hasBack="{{true}}"></top-bar> -->
+<card-title text="开发者们" sub-text="Developers"></card-title>
+<view class="text-gray margin" style='text-align: justify'>
+  <text class='icon-emoji'> 在东大 作为一个非盈利性的校园信息统合平台，其开发工作亦以兴趣为导向。</text>
+</view>
+<view class="bg-white margin shadow-md padding radius-lg animation-slide-bottom" style="animation-delay: 0.2s;" wx:for="{{developers}}" wx:for-item="developer" data-url="{{developer.rewardCodeUrl}}" wx:key="dev-{{developer.name}}">
+  <view class='padding-top padding-bottom'>
+    <text class='text-xxl'> {{developer.name}} \n</text>
+  </view>
+  <text class='text-gray'> {{developer.description}} \n</text>
+  <text class='text-lg'> “{{developer.slogan}}” \n</text>
+</view>
+<card-title text="I have a dream"></card-title>
+<view class="last-info">
+  <text>在东大 有一个梦想，乃为东北大学校园信息化之建设贡献自己的一份力量。我等热爱东北大学，且牢记母校「使命如此其重大，能不奋勉乎吾曹？ 」之教导。\n期与君戮力同心，为东大升A复兴而奋斗！\n迎东大百年，愿母校愈来愈好。</text>
+</view>
