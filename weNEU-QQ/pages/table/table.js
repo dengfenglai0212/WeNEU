@@ -296,6 +296,20 @@ Page({
         if (res.data[week - 1][weekDay][course][1]!=1){
           Toast("教务处的课不可以删除哦～")
         }else{
+           wx.getStorage({
+        key:'AddCourse',
+        success(res){
+          res.data.forEach((ele,index)=>{
+            if(ele.i==week && ele.j==weekDay+1){
+              res.data.splice(index, 1); 
+            }
+          })
+          wx.setStorage({
+            key:'AddCourse',
+            data:res.data
+          })
+        }
+    })
           res.data[week - 1][weekDay][course] = [null, null, null]
           wx.setStorage({
             key: 'TermCourse',
@@ -383,11 +397,47 @@ Page({
       console.log(getWeekAndDayFromSomeday);
       let i = getWeekAndDayFromSomeday.week;
       let j = getWeekAndDayFromSomeday.weekday;
+      let courseLocation=this.data.courseLocation;
+      let remarks=this.data.remarks;
+      let courseName=this.data.courseName;
       let that=this;
       wx.getStorage({
         key: 'TermCourse',
         success(res) {
           if (res.data[i - 1][j - 1][k][0]==null){
+        wx.getStorage({
+        key:'AddCourse',
+        success(res2){
+          let course={};
+          course.i=i;
+          course.j=j;
+          course.remarks=remarks;
+          course.courseLocation=courseLocation;
+          course.courseName=courseName;
+          course.k=k;
+          res2.data.push(course);
+          wx.setStorage({
+            key:'AddCourse',
+            data:res2.data
+          })
+        },
+        fail(err){
+          let addCourselist=[];
+          let course={};
+          course.i=i;
+          course.j=j;
+          course.remarks=remarks;
+          course.courseLocation=courseLocation;
+          course.courseName=courseName;
+          course.k=k;
+          addCourselist.push(course);
+          wx.setStorage({
+            key:'AddCourse',
+            data:addCourselist
+          })
+        }
+      })
+            
             res.data[i - 1][j - 1][k] = [that.data.courseName, 1, that.data.courseLocation];
             res.data[i - 1][j - 1][k].push(that.data.remarks)
             wx.setStorage({
@@ -499,6 +549,7 @@ Page({
 
   //选择新建课程的时间
   onChangeTimePick(event){
+    wx.stopPullDownRefresh();
     this.setData({
       currentDate: event.detail.value
     })
@@ -670,8 +721,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    // wx.removeStorageSync('listData')
-    console.log("下拉刷新")
     wx.showLoading({
       title: '玩命加载中...',
     })
@@ -681,8 +730,38 @@ Page({
       wx.hideNavigationBarLoading();
       wx.hideLoading()
     },2000)
-    // this.showTermCourse(); //后期完善此刷新功能
-    // this.showCourse();
+    this.showTermCourse(); 
+    this.showCourse();
+    //将自定义的课表加入现在的课程中
+    let that=this;
+     wx.getStorage({
+        key: 'TermCourse',
+        success(res) {
+          wx.getStorage({
+            key:'AddCourse',
+            success(res2){
+              res2.data.forEach(ele=>{
+                res.data[ele.i-1][ele.j - 1][ele.k] = [ele.courseName, 1, ele.courseLocation];
+                res.data[ele.i-1][ele.j - 1][ele.k].push(ele.remarks)
+                wx.setStorage({
+                  key: 'TermCourse',
+                  data: res.data,
+                })
+              })
+              wx.stopPullDownRefresh();
+              wx.hideNavigationBarLoading();
+              wx.hideLoading()
+            },
+            fail(err){
+              console.log("插入自定义课表失败");
+              wx.stopPullDownRefresh();
+              wx.hideNavigationBarLoading();
+              wx.hideLoading()
+            }
+          })
+          that.showCourse();
+        }
+      })
   },
   
   showTermCourse: function() {

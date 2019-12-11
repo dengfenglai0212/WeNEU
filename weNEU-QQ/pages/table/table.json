@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "课程表",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "van-search": "../../../vant_weapp/components/dist/search/index",
     "van-panel": "../../../vant_weapp/components/dist/panel/index",

@@ -69,12 +69,14 @@
     </view>
   </block>
   <view class='text-center refresh-tip padding-top'>
-    <text class='icon-question'></text> 课表有更新? 下拉刷新一下吧。
+    <text class='icon-question'></text> 课表有更新?点击
+    <text style="color:#2d8cf0;text-decoration-line: underline;;font-weight:550" bindtap="onPullDownRefresh" >刷新</text>
+    一下吧。
     <text style="color:#2d8cf0;text-decoration-line: underline;;font-weight:550" bindtap="addCourse" >自定义课表</text>
   </view>
 </view>
 
-<!-- 选课弹窗 -->
+<!-- 新建课程弹窗 -->
 <van-popup show="{{addCoursePop}}"round custom-style="height: 60%;width:80%" bind:close="onCloseAddCoursePop">
   <view class="addCrsBt">
     <view>
@@ -103,7 +105,11 @@ bindtap="confirmAdd"></image>
         border="{{ false }}"
         bind:change="onChangeCourseName"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+         >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
     <view class="input-wrapper" style="border-color:{{color1}};">
@@ -120,11 +126,15 @@ bindtap="confirmAdd"></image>
         border="{{ false }}"
         bind:change="onChangeCourseLocation"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+        >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
-    <view class="input-wrapper" style="border-color:{{color2}};overflow: hidden; padding: 9rpx;">
-      <view style="margin:4px;margin-left:10px" >
+    <view class="input-wrapper" style="border-color:{{color2}}; padding: 9rpx 0 0 0;">
+      <view style="margin:4px;margin-left:8px" >
         <image src="../../images/table/time.png" style="width:25px;height:25px"></image>
       </view>
        <view class='line2'></view>
@@ -136,7 +146,7 @@ bindtap="confirmAdd"></image>
          placeholder="时间"
          border="{{ false }}"
          bind:change="onChangeCourseTime"
-         custom-style="background-color:#f8f8f9;width:90%;padding: 0 0 0 12rpx;"
+         custom-style="background-color:#f8f8f9;width:90%;padding:0"
          bindtap="showTimePop"
          placeholder-style="color:{{timeColor}}"
          >
@@ -145,7 +155,7 @@ bindtap="confirmAdd"></image>
             <image wx:else src="../../images/table/pullup.png" style="width:10px;height:10px"></image>
           </view>
          </van-field>
-         <view style="font-size:15px;margin-left:14px;margin-bottom:4px;color:#495060">
+         <view style="font-size:15px;margin-bottom:4px;color:#495060">
           <text decode="{{true}}">{{currentDate2}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{currentTime2}}</text>
          </view>
       </view>
@@ -164,7 +174,11 @@ bindtap="confirmAdd"></image>
         border="{{ false }}"
         bind:change="onChangeRemarks"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+         >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
   </view>
@@ -199,7 +213,11 @@ bindtap="confirmModify"></image>
         border="{{ false }}"
         bind:change="onChangeCourseName2"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+         >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
     <view class="input-wrapper" style="border-color:{{color1}};">
@@ -216,11 +234,15 @@ bindtap="confirmModify"></image>
         border="{{ false }}"
         bind:change="onChangeCourseLocation2"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+         >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
-    <view class="input-wrapper" style="border-color:{{color2}};overflow: hidden; padding: 9rpx;">
-      <view style="margin:4px;margin-left:10px" >
+    <view class="input-wrapper" style="border-color:{{color2}};overflow: hidden; padding: 9rpx 0 0 0;">
+      <view style="margin:4px;margin-left:8px" >
         <image src="../../images/table/time.png" style="width:25px;height:25px"></image>
       </view>
        <view class='line2'></view>
@@ -231,7 +253,7 @@ bindtap="confirmModify"></image>
          disabled
          placeholder="时间"
          border="{{ false }}"
-         custom-style="background-color:#f8f8f9;width:90%;padding: 0 0 0 12rpx;"
+         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
          placeholder-style="color:{{timeColor}}"
          >
           <view slot="right-icon" size="small" type="primary">
@@ -239,7 +261,7 @@ bindtap="confirmModify"></image>
             <!-- <image wx:else src="../../images/table/pullup.png" style="width:10px;height:10px"></image> -->
           </view>
          </van-field>
-         <view style="font-size:15px;margin-left:14px;margin-bottom:4px;color:#495060">
+         <view style="font-size:15px;margin-bottom:4px;color:#495060">
           <text decode="{{true}}">{{currentDate3}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{currentTime4}}</text>
          </view>
       </view>
@@ -258,7 +280,11 @@ bindtap="confirmModify"></image>
         border="{{ false }}"
         bind:change="onChangeRemarks2"
         custom-style="background-color:#f8f8f9;width:90%;padding: 0;"
-         />
+         >
+         <view slot="right-icon" size="small" type="primary">
+            <image wx:if="{{1===1}}"  style="width:10px;height:10px" ></image>
+          </view>
+         </van-field>
       </view>
     </view>
      <button bindtap="deleteCourse" class="deleteButton" style="width: 160rpx;">删除</button>
@@ -267,8 +293,7 @@ bindtap="confirmModify"></image>
 
 
 <!-- 时间选择弹窗 -->
-<van-popup show="{{chooseTimePop}}"round position="bottom" custom-style="height: 400rpx;width:70%;" bind:close="onCloseChooseTimeePop"
->
+  <van-popup show="{{chooseTimePop}}" round position="bottom" custom-style="height: 400rpx;width:70%;" bind:close="onCloseChooseTimeePop">
 <view style="display:flex;flex-direction:row">
   <view style="width:50%;margin-top:15px;margin-right:15px;margin-left:15px;height: 300rpx;">
     <van-picker
@@ -309,5 +334,5 @@ bindtap="confirmModify"></image>
   </view>
 </view>
 </van-popup>
-
 <van-toast id="van-toast" />
+

@@ -192,6 +192,7 @@
   flex-direction: column;
   width: 2rpx;
   height: 40rpx;
+  /* margin-left: 12rpx; */
   background-color: #80848f;
 }
 
@@ -200,8 +201,8 @@
   flex-direction: column;
   width: 2rpx;
   height: 80rpx;
-  margin-right: 22rpx;
-  margin-left: 12rpx;
+  /* margin-right: 12px; */
+  /* margin-left: 12rpx; */
   background-color: #80848f;
 }
 

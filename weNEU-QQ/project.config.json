@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -80,6 +80,13 @@
 					"name": "小练习",
 					"pathName": "pages/question_bank/test/test",
 					"query": "title_0=1.2.2 数列极限的性质(8题)&title_1=1.2.1 数列极限的定义(8题)",
+					"scene": ""
+				},
+				{
+					"id": -1,
+					"name": "课表",
+					"pathName": "pages/table/table",
+					"query": "",
 					"scene": ""
 				}
 			]
