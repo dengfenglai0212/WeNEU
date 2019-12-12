@@ -10,7 +10,7 @@
         <image lazy-load class="image-book" src="{{item.img}}"></image>
         <view class="info">
           <view class="row">
-            <view>{{item.bookname}}</view>
+            <text decode="true">{{item.bookname}}</text>
           </view>
           <view class="press">
             <view>{{item.press}}</view>

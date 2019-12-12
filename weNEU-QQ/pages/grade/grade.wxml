@@ -62,7 +62,7 @@
           <text>{{item.extraData[5].data}}</text>
           <text>{{item.extraData[4].data}}</text>
           <text>{{item.extraData[3].data}}</text>
-          <text>{{item.extraData[6].data}}</text>
+          <text>{{item.extraData[8].data}}</text>
         </view>
       </block>
     </view>

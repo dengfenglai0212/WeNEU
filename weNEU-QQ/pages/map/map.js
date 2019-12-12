@@ -117,7 +117,8 @@ Page({
       userid: wx.getStorageSync('stuID'),
     });
     // 从本地存储获取学号及密码
-    var value = wx.getStorageSync('stuPass_eone')
+    var tourist = wx.getStorageSync('Tourist');
+    var value = wx.getStorageSync('stuPass_eone') || tourist;
 
     // 判断登录状态决定显示内容
     if (!value) {

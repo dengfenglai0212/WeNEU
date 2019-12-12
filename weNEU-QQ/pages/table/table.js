@@ -224,7 +224,6 @@ Page({
     if (position[0]==6){
       timeList = this.data.dateList[0].split("-")
       time = timeList[0] + "." + timeList[1]
-      console.log(time)
     }else{
       timeList = this.data.dateList[position[0] + 1].split("-")
       time = timeList[0] + "." + timeList[1]
@@ -335,8 +334,12 @@ Page({
   //关闭添加课弹窗
   onCloseAddCoursePop(){
     this.setData({
-      addCoursePop:false
+      addCoursePop:false,
+      courseTime: "",
+      currentDate2: "",
+      currentTime2: ""
     })
+    console.log(this.data.courseTime);
   },
 
   //关闭选择时间弹窗
@@ -862,4 +865,84 @@ Page({
     };
     return shareObj;
   },
+
+  //点击无课的空白区域，添加课程
+  clickBlank(event){
+     this.setData({
+      addCoursePop:true
+    })
+    let position = event.currentTarget.dataset.position
+    let timeList;
+    let time; //课程日期
+    let timeDetail; //课程节数
+    let weekday;  //课程星期
+    switch (position[0]) {
+      case 0: {
+        weekday = "周一";
+        break;
+      }
+      case 1: {
+        weekday = "周二";
+        break;
+      }
+      case 2: {
+        weekday = "周三";
+        break;
+      }
+      case 3: {
+        weekday = "周四";
+        break;
+      }
+      case 4: {
+        weekday = "周五";
+        break;
+      }
+      case 5: {
+        weekday = "周六";
+        break;
+      }
+      default: {
+        weekday = "周日";
+        break;
+      }
+    }
+    switch (position[1]) {
+      case 0: {
+        timeDetail = "1-2节";
+        break;
+      }
+      case 1: {
+        timeDetail = "3-4节";
+        break;
+      }
+      case 2: {
+        timeDetail = "5-6节";
+        break;
+      }
+      case 3: {
+        timeDetail = "7-8节";
+        break;
+      }
+      case 4: {
+        timeDetail = "9-10节";
+        break;
+      }
+      default: {
+        timeDetail = "11-12节";
+        break;
+      }
+    }
+    if (position[0]==6){
+      timeList = this.data.dateList[0].split("-")
+      time = timeList[0] + "." + timeList[1]
+    }else{
+      timeList = this.data.dateList[position[0] + 1].split("-")
+      time = timeList[0] + "." + timeList[1]
+    }
+    this.setData({
+        currentDate2:"2019."+time+" "+weekday,
+        currentTime2: timeDetail,
+        courseTime: "2019."+time+" "+weekday +" "+timeDetail,
+      })
+  }
 })

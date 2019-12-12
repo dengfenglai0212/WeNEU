@@ -58,17 +58,17 @@ Page({
         title: '正在加载...',
       })
       wx.showNavigationBarLoading();
-      url = 'https://weneu.neuyan.com/uuia';
+      url = 'https://weneu.neuyan.com/api/aao/getScore';
       wx.request({
         url: url,
         method: 'POST',
         dataType: 'json',
         data: ({
-          'group': "base",
-          'action': "score",
+          // 'group': "base",
+          // 'action': "score",
           'stuID': that.data.userid,
-          'password': that.data.passwd,
-          'semesterID': that.data.term[that.data.index]
+          'stuPass': that.data.passwd,
+          'semester': that.data.term[that.data.index]
         }),
         success: function(res) {
           console.log(res.data.data);
@@ -112,30 +112,30 @@ Page({
     var sum_neu = 0;
     var gradeList = that.data.cjInfo.courses;
     for (var i = 0; i < gradeList.length; i++) {
-      if (gradeList[i].extraData[6].data == '优') {
-        gradeList[i].extraData[6].data = 95;
-      } else if (gradeList[i].extraData[6].data == "良") {
-        gradeList[i].extraData[6].data = 85;
-      } else if (gradeList[i].extraData[6].data == "中") {
-        gradeList[i].extraData[6].data = 75;
-      } else if (gradeList[i].extraData[6].data == "及格") {
-        gradeList[i].extraData[6].data = 65;
-      } else if (gradeList[i].extraData[6].data == "不及格") {
-        gradeList[i].extraData[6].data = 0;
-      } else if (gradeList[i].extraData[6].data == "合格") {
-        gradeList[i].extraData[6].data = 80;
-      } else if (gradeList[i].extraData[6].data == "不合格") {
-        gradeList[i].extraData[6].data = 0;
-      } else if (gradeList[i].extraData[6].data == "其他") {
+      if (gradeList[i].extraData[8].data == '优') {
+        gradeList[i].extraData[8].data = 95;
+      } else if (gradeList[i].extraData[8].data == "良") {
+        gradeList[i].extraData[8].data = 85;
+      } else if (gradeList[i].extraData[8].data == "中") {
+        gradeList[i].extraData[8].data = 75;
+      } else if (gradeList[i].extraData[8].data == "及格") {
+        gradeList[i].extraData[8].data = 65;
+      } else if (gradeList[i].extraData[8].data == "不及格") {
+        gradeList[i].extraData[8].data = 0;
+      } else if (gradeList[i].extraData[8].data == "合格") {
+        gradeList[i].extraData[8].data = 80;
+      } else if (gradeList[i].extraData[8].data == "不合格") {
+        gradeList[i].extraData[8].data = 0;
+      } else if (gradeList[i].extraData[8].data == "其他") {
         continue;
-      } else if (gradeList[i].extraData[6].data == "缺考") {
+      } else if (gradeList[i].extraData[8].data == "缺考") {
         continue;
-      } else if (gradeList[i].extraData[6].data == "缓考") {
+      } else if (gradeList[i].extraData[8].data == "缓考") {
         continue;
-      } else if (gradeList[i].extraData[6].data == "请参加考评") {
+      } else if (gradeList[i].extraData[8].data == "请参加考评") {
         continue;
       }
-      sum_neu += (parseFloat(gradeList[i].extraData[6].data) / 10 - 5) * parseFloat(gradeList[i].credit);
+      sum_neu += (parseFloat(gradeList[i].extraData[8].data) / 10 - 5) * parseFloat(gradeList[i].credit);
       sum_credit += parseFloat(gradeList[i].credit);
     }
     console.log("neu: " + sum_neu / sum_credit);
